@@ -579,18 +579,99 @@ function Get-DsLocalGroupMembers {
 .DESCRIPTION
     Disable Windows 10 Telemetry Collection and Upload
     Disable Connected User Experiences service, and WAP Push service
+.PARAMETER State
+    Enable or Disable
 .LINK
     https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Disable-DsWindowsTelemetry.md
 #>
 
-function Disable-DsWindowsTelemetry {
+function Set-DsWindowsTelemetry {
     [CmdletBinding()]
-    param()
+    param(
+        [parameter(Mandatory)]
+        [ValidateSet('Enable','Disable')][string] $State
+    )
     try {
-        New-Item -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows\DataCollection' -Name 'AllowTelemetry' -ItemType DWORD -Value 0 -Force
-        Get-Service -Name "diagtrack" | Stop-Service -Force -ErrorAction SilentlyContinue
-        Set-Service -Name "diagtrack" -StartupType "Disabled" -ErrorAction SilentlyContinue
-        Set-Service -Name "dmwappushsvc" -StartupType "Disabled" -ErrorAction SilentlyContinue
+        if ($State -eq 'Disable') {
+            New-Item -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows\DataCollection' -Name 'AllowTelemetry' -ItemType DWORD -Value 0 -Force
+            Get-Service -Name "diagtrack" | Stop-Service -Force -ErrorAction SilentlyContinue
+            Set-Service -Name "diagtrack" -StartupType "Disabled" -ErrorAction SilentlyContinue
+            Set-Service -Name "dmwappushsvc" -StartupType "Disabled" -ErrorAction SilentlyContinue
+        }
+        else {
+            New-Item -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows\DataCollection' -Name 'AllowTelemetry' -ItemType DWORD -Value 1 -Force
+            Set-Service -Name "diagtrack" -StartupType "Manual" -ErrorAction SilentlyContinue
+            Set-Service -Name "dmwappushsvc" -StartupType "Manual" -ErrorAction SilentlyContinue
+        }
+    }
+    catch {
+        Write-Error $Error[0].Exception.Message
+    }
+}
+
+function Show-DsFileExtensions {
+    [CmdletBinding()]
+    param (
+        [parameter(Mandatory)][bool] $Enable,
+        [parameter()][switch] $RestartShell
+    )
+    if ($Enable -eq $True) {$v = 1} else {$v = 0}
+    try {
+        $key = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced"
+        Set-ItemProperty -Path $key -Name "HideFileExt" -Value $v -Force
+        if ($RestartShell) {
+            Get-Process -Name "explorer" | Stop-Process -Force
+        }
+        else {
+            Write-Warning "change will take effect after Explorer shell is restarted or user logs off"
+        }
+    }
+    catch {
+        Write-Error $Error[0].Exception.Message
+    }
+}
+
+function Show-DsExplorerMenuBar {
+    [CmdletBinding()]
+    param (
+        [parameter(Mandatory)][bool] $Enable,
+        [parameter()][switch] $AllUsers
+    )
+    <#
+    0 or delete = Not configured (default)
+    1 = Always open new File Explorer windows with the ribbon minimized
+    2 = Never open new File Explorer windows with the ribbon minimized
+    3 = Minimize the ribbon when File Explorer is opened the first time
+    4 = Display the full ribbon when File Explorer is opened the first time
+    #>
+    try {
+        if ($AllUsers) {
+            if ($Enable -eq $True) {$v = 4} else {$v = 0}
+            $key = 'HKLM:\SOFTWARE\Policies\Microsoft\Windows\Explorer'
+            $val = 'ExplorerRibbonStartsMinimized' 
+            New-Item -Path $key -Force
+            New-ItemProperty -Path $key -Name $val -Value $v -PropertyType DWORD -Force
+        }
+        else {
+            if ($Enable -eq $True) {$v = 0} else {$v = 1}
+            $key = 'HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Ribbon'
+            Set-ItemProperty -Path $key -Name 'MinimizedStateTabletModeOff' -Value $v -Force
+            <#
+            HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Ribbon
+            
+            (When Tablet Mode off)
+            MinimizedStateTabletModeOff DWORD
+
+            0 = Always show (expand)
+            1 = Always hide (minimize)
+
+            (When Tablet Mode on)
+            MinimizedStateTabletModeOn DWORD
+
+            0 = Always show (expand)
+            1 = Always hide (minimize)
+            #>
+        }
     }
     catch {
         Write-Error $Error[0].Exception.Message
