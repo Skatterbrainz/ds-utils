@@ -578,6 +578,7 @@ function Get-DsLocalGroupMembers {
     Disable Windows 10 Telemetry Collection and Upload
 .DESCRIPTION
     Disable Windows 10 Telemetry Collection and Upload
+    Disable Connected User Experiences service, and WAP Push service
 .LINK
     https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Disable-DsWindowsTelemetry.md
 #>
@@ -587,6 +588,9 @@ function Disable-DsWindowsTelemetry {
     param()
     try {
         New-Item -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows\DataCollection' -Name 'AllowTelemetry' -ItemType DWORD -Value 0 -Force
+        Get-Service -Name "diagtrack" | Stop-Service -Force -ErrorAction SilentlyContinue
+        Set-Service -Name "diagtrack" -StartupType "Disabled" -ErrorAction SilentlyContinue
+        Set-Service -Name "dmwappushsvc" -StartupType "Disabled" -ErrorAction SilentlyContinue
     }
     catch {
         Write-Error $Error[0].Exception.Message
