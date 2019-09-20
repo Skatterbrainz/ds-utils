@@ -1,14 +1,14 @@
 ---
 external help file: ds-utils-help.xml
 Module Name: ds-utils
-online version:
+online version: https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-DsPowerPlan.md
 schema: 2.0.0
 ---
 
 # Get-DsPowerPlan
 
 ## SYNOPSIS
-{{Fill in the Synopsis}}
+Returns the active Power Plan Name
 
 ## SYNTAX
 
@@ -17,26 +17,24 @@ Get-DsPowerPlan
 ```
 
 ## DESCRIPTION
-{{Fill in the Description}}
+Returns the active Power Plan Name
 
 ## EXAMPLES
 
-### Example 1
-```powershell
-PS C:\> {{ Add example code here }}
+### EXAMPLE 1
 ```
-
-{{ Add example description here }}
+Get-DsPowerPlan
+```
 
 ## PARAMETERS
 
 ## INPUTS
 
-### None
-
 ## OUTPUTS
 
-### System.Object
 ## NOTES
 
 ## RELATED LINKS
+
+[https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-DsPowerPlan.md](https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-DsPowerPlan.md)
+

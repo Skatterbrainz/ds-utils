@@ -1,14 +1,14 @@
 ---
 external help file: ds-utils-help.xml
 Module Name: ds-utils
-online version:
+online version: https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Add-DsTaskbarShortcut.md
 schema: 2.0.0
 ---
 
 # Add-DsTaskbarShortcut
 
 ## SYNOPSIS
-{{Fill in the Synopsis}}
+Pin Shortcut to Taskbar
 
 ## SYNTAX
 
@@ -17,21 +17,19 @@ Add-DsTaskbarShortcut [-Target] <String> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{Fill in the Description}}
+Pin Shortcut to Taskbar
 
 ## EXAMPLES
 
-### Example 1
-```powershell
-PS C:\> {{ Add example code here }}
+### EXAMPLE 1
 ```
-
-{{ Add example description here }}
+Add-DsTaskbarShortcut -Target "c:\windows\notepad.exe"
+```
 
 ## PARAMETERS
 
 ### -Target
-Target item to pin
+Path and name of item to target shortcut
 
 ```yaml
 Type: String
@@ -39,7 +37,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: True
-Position: 0
+Position: 1
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -51,11 +49,11 @@ For more information, see about_CommonParameters (http://go.microsoft.com/fwlink
 
 ## INPUTS
 
-### None
-
 ## OUTPUTS
 
-### System.Object
 ## NOTES
 
 ## RELATED LINKS
+
+[https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Add-DsTaskbarShortcut.md](https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Add-DsTaskbarShortcut.md)
+

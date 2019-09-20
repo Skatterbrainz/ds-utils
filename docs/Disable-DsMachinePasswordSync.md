@@ -1,14 +1,14 @@
 ---
 external help file: ds-utils-help.xml
 Module Name: ds-utils
-online version:
+online version: https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Disable-DsMachinePasswordSync.md
 schema: 2.0.0
 ---
 
 # Disable-DsMachinePasswordSync
 
 ## SYNOPSIS
-{{Fill in the Synopsis}}
+Disable AD machine account password sync
 
 ## SYNTAX
 
@@ -17,16 +17,17 @@ Disable-DsMachinePasswordSync [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{Fill in the Description}}
+Disable AD machine account password sync.
+Most often used with
+virtual machines which are repeatedly reverted to snapshots/checkpoints
+for development and testing purposes.
 
 ## EXAMPLES
 
-### Example 1
-```powershell
-PS C:\> {{ Add example code here }}
+### EXAMPLE 1
 ```
-
-{{ Add example description here }}
+Disable-DsMachinePasswordSync
+```
 
 ## PARAMETERS
 
@@ -36,11 +37,11 @@ For more information, see about_CommonParameters (http://go.microsoft.com/fwlink
 
 ## INPUTS
 
-### None
-
 ## OUTPUTS
 
-### System.Object
 ## NOTES
 
 ## RELATED LINKS
+
+[https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Disable-DsMachinePasswordSync.md](https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Disable-DsMachinePasswordSync.md)
+

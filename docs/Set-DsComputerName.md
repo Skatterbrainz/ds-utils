@@ -1,7 +1,7 @@
 ---
 external help file: ds-utils-help.xml
 Module Name: ds-utils
-online version:
+online version: https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Set-DsComputerName.md
 schema: 2.0.0
 ---
 
@@ -151,3 +151,6 @@ Chassis Type number is taken from Win32_SystemEnclosure and uses first
     may return an array like (10,12) where 10 is the laptop, and 12 is the dock
 
 ## RELATED LINKS
+
+[https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Set-DsComputerName.md](https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Set-DsComputerName.md)
+

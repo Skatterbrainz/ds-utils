@@ -1,14 +1,14 @@
 ---
 external help file: ds-utils-help.xml
 Module Name: ds-utils
-online version:
+online version: https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Install-DsPackages.md
 schema: 2.0.0
 ---
 
 # Install-DsPackages
 
 ## SYNOPSIS
-{{Fill in the Synopsis}}
+Install Chocolatey and List of Packages
 
 ## SYNTAX
 
@@ -17,21 +17,27 @@ Install-DsPackages [[-Packages] <String[]>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{Fill in the Description}}
+Install Chocolatey and List of Packages
 
 ## EXAMPLES
 
-### Example 1
-```powershell
-PS C:\> {{ Add example code here }}
+### EXAMPLE 1
+```
+Install-DsPackages
 ```
 
-{{ Add example description here }}
+Installs the default list of packages
+
+### EXAMPLE 2
+```
+Install-DsPackages -Packages ('visualstudiocode','git','github-desktop')
+```
 
 ## PARAMETERS
 
 ### -Packages
-{{Fill Packages Description}}
+Name(s) of Chocolatey packages
+Default = ('dotnet3.5','7zip','notepadplusplus','adobereader','googlechrome')
 
 ```yaml
 Type: String[]
@@ -39,8 +45,8 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 0
-Default value: None
+Position: 1
+Default value: ('dotnet3.5','7zip','notepadplusplus','adobereader','googlechrome')
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -51,11 +57,11 @@ For more information, see about_CommonParameters (http://go.microsoft.com/fwlink
 
 ## INPUTS
 
-### None
-
 ## OUTPUTS
 
-### System.Object
 ## NOTES
 
 ## RELATED LINKS
+
+[https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Install-DsPackages.md](https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Install-DsPackages.md)
+

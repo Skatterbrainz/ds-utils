@@ -1,7 +1,7 @@
 ---
 external help file: ds-utils-help.xml
 Module Name: ds-utils
-online version:
+online version: https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Remove-DsAppxPackages.md
 schema: 2.0.0
 ---
 
@@ -54,3 +54,6 @@ For more information, see about_CommonParameters (http://go.microsoft.com/fwlink
 ## NOTES
 
 ## RELATED LINKS
+
+[https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Remove-DsAppxPackages.md](https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Remove-DsAppxPackages.md)
+

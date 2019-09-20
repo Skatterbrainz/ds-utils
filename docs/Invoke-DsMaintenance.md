@@ -1,13 +1,14 @@
 ---
 external help file: ds-utils-help.xml
 Module Name: ds-utils
-online version:
+online version: https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Invoke-DsMaintenance.md
 schema: 2.0.0
 ---
 
 # Invoke-DsMaintenance
 
 ## SYNOPSIS
+Run Maintenance Tasks
 
 ## SYNTAX
 
@@ -16,19 +17,32 @@ Invoke-DsMaintenance [[-Update] <String>] [-ForceReboot] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{Fill in the Description}}
+Run Ds-Utils Maintenance Tasks
 
 ## EXAMPLES
 
 ### EXAMPLE 1
 ```
-
+Invoke-DsMaintenance -Update Modules
 ```
+
+Updates PowerShell modules only
+
+### EXAMPLE 2
+```
+Invoke-DsMaintenance -ForceReboot
+```
+
+Runs all update tasks and forces a restart at the end
 
 ## PARAMETERS
 
 ### -Update
-{{Fill Update Description}}
+All, Modules, Windows, Packages...
+* Modules = PowerShell modules
+* Windows = Windows Updates
+* Packages = Chocolatey Packages
+Default = ALL
 
 ```yaml
 Type: String
@@ -43,7 +57,7 @@ Accept wildcard characters: False
 ```
 
 ### -ForceReboot
-{{Fill ForceReboot Description}}
+Initiates a restart upon completion
 
 ```yaml
 Type: SwitchParameter
@@ -68,3 +82,6 @@ For more information, see about_CommonParameters (http://go.microsoft.com/fwlink
 ## NOTES
 
 ## RELATED LINKS
+
+[https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Invoke-DsMaintenance.md](https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Invoke-DsMaintenance.md)
+

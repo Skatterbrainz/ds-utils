@@ -1,14 +1,14 @@
 ---
 external help file: ds-utils-help.xml
 Module Name: ds-utils
-online version:
+online version: https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Set-DsPowerPlan.md
 schema: 2.0.0
 ---
 
 # Set-DsPowerPlan
 
 ## SYNOPSIS
-{{Fill in the Synopsis}}
+Set Active Power Plan
 
 ## SYNTAX
 
@@ -17,21 +17,41 @@ Set-DsPowerPlan [-PlanName] <String> [[-FileName] <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{Fill in the Description}}
+Set Active Power Plan from a list of standard names
 
 ## EXAMPLES
 
-### Example 1
-```powershell
-PS C:\> {{ Add example code here }}
+### EXAMPLE 1
+```
+Set-DsPowerPlan -PlanName "Performance"
 ```
 
-{{ Add example description here }}
+### EXAMPLE 2
+```
+Set-DsPowerPlan -PlanName "Custom" -FileName "c:\customplan.pow"
+```
 
 ## PARAMETERS
 
+### -PlanName
+Name of power plan to set active. 
+ 
+Balanced, Performance, HighPerformance, PowerSaver, EnergyStar, Custom
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: True
+Position: 1
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -FileName
-Custom power plan filename
+PowerPlan file to import and set Active, when PlanName is set to Custom
 
 ```yaml
 Type: String
@@ -39,23 +59,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 1
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -PlanName
-Power scheme name
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: Balanced, HighPerformance, Performance, PowerSaver, EnergyStar, Custom
-
-Required: True
-Position: 0
+Position: 2
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -67,11 +71,11 @@ For more information, see about_CommonParameters (http://go.microsoft.com/fwlink
 
 ## INPUTS
 
-### None
-
 ## OUTPUTS
 
-### System.Object
 ## NOTES
 
 ## RELATED LINKS
+
+[https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Set-DsPowerPlan.md](https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Set-DsPowerPlan.md)
+

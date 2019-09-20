@@ -1,7 +1,7 @@
 ---
 external help file: ds-utils-help.xml
 Module Name: ds-utils
-online version:
+online version: https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Set-DsWin10StartMenu.md
 schema: 2.0.0
 ---
 
@@ -57,3 +57,6 @@ For more information, see about_CommonParameters (http://go.microsoft.com/fwlink
 https://www.howto-connect.com/registry-hacks-for-start-menu-and-taskbar-in-windows-10/
 
 ## RELATED LINKS
+
+[https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Set-DsWin10StartMenu.md](https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Set-DsWin10StartMenu.md)
+

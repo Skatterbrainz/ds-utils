@@ -1,7 +1,7 @@
 ---
 external help file: ds-utils-help.xml
 Module Name: ds-utils
-online version:
+online version: https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-DsLocalGroupMembers.md
 schema: 2.0.0
 ---
 
@@ -74,3 +74,6 @@ For more information, see about_CommonParameters (http://go.microsoft.com/fwlink
 Adapted from https://gallery.technet.microsoft.com/scriptcenter/List-local-group-members-c25dbcc4
 
 ## RELATED LINKS
+
+[https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-DsLocalGroupMembers.md](https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-DsLocalGroupMembers.md)
+
