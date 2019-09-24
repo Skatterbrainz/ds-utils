@@ -13,7 +13,7 @@ Run Maintenance Tasks
 ## SYNTAX
 
 ```
-Invoke-DsMaintenance [[-Update] <String>] [-ForceReboot] [<CommonParameters>]
+Invoke-DsMaintenance [[-Update] <String>] [-ForceReboot] [-ForceUpdate] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -34,6 +34,13 @@ Invoke-DsMaintenance -ForceReboot
 ```
 
 Runs all update tasks and forces a restart at the end
+
+### EXAMPLE 3
+```
+Invoke-DsMaintenance -ForceUpdate
+```
+
+Runs all update tasks with -Force applied to module updates
 
 ## PARAMETERS
 
@@ -71,6 +78,21 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -ForceUpdate
+Applies the -Force parameter Update-Module
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### CommonParameters
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
 For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
@@ -80,6 +102,7 @@ For more information, see about_CommonParameters (http://go.microsoft.com/fwlink
 ## OUTPUTS
 
 ## NOTES
+Module AZ may display errors if the current shell has active references to Az.Accounts cmdlets
 
 ## RELATED LINKS
 
