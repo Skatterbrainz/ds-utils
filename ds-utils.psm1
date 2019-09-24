@@ -69,9 +69,9 @@ function Test-DsRebootPending {
 function Write-DsLog {
     [CmdletBinding()]
     param (
-        [parameter()][ValidateNotNullOrEmpty()] [string] $LogFile = $(Join-Path $env:SystemRoot "temp\ds-utils-$(Get-Date -f 'yyyyMMddhhmm').log"),
-        [parameter()][ValidateSet('Info','Error','Warning')] [string] $Category = 'Info',
-        [parameter(Mandatory)] [ValidateNotNullOrEmpty()] [string] $Message
+        [parameter(Mandatory)] [ValidateNotNullOrEmpty()] [string] $Message,
+        [parameter()][ValidateNotNullOrEmpty()] [string] $LogFile = $(Join-Path $env:TEMP "ds-utils-$(Get-Date -f 'yyyyMMdd').log"),
+        [parameter()][ValidateSet('Info','Error','Warning')] [string] $Category = 'Info'
     )
     try {
         $strdata = "$(Get-Date -f 'yyyy-MM-dd hh:mm:ss') - $Category - $Message"
@@ -83,7 +83,7 @@ function Write-DsLog {
         }
     }
     catch {
-        Write-Error "Write-DsLog (error): $($Error[0].Exception.Message)"
+        Write-Error "[module=ds-utils: Write-DsLog] $($Error[0].Exception.Message)"
     }
 }
 
@@ -129,30 +129,29 @@ function Invoke-DsMaintenance {
                 Write-DsLog -Message "chocolatey packages have been updated"
             }
             else {
-                Write-DsLog -Message  "chocolatey is not installed (skipping updates)" -Category 'Warning'
-                Write-Warning "chocolatey is not installed (skipping package updates)"
+                Write-DsLog -Message "chocolatey is not installed (skipping updates)" -Category 'Warning'
             }
         }
         if ($Update -in ('All','Windows')) {
-            Write-DsLog "updating windows and office products"
+            Write-DsLog -Message "updating windows and office products"
             $res = Get-WindowsUpdate -AcceptAll -Install -WindowsUpdate -IgnoreReboot
-            Write-DsLog "$($res.Count) windows updates were applied"
+            Write-DsLog -Message "$($res.Count) windows updates were applied"
         }
         if (Test-DsRebootPending) {
             Write-DsLog "tasks completed (reboot required)"
             if ($ForceReboot) {
                 Write-Output 1641
-                Write-DsLog "rebooting computer in 15 seconds"
+                Write-DsLog -Message "rebooting computer in 15 seconds"
                 Restart-Computer -Timeout 15
             }
         }
         else {
-            Write-DsLog "tasks completed"
+            Write-DsLog -Message "tasks completed"
             Write-Output 0
         }
     }
     catch {
-        Write-DsLog -Category 'Error' -Message "$($Error[0].Exception.Message)"
+        Write-DsLog -Message "$($Error[0].Exception.Message)" -Category 'Error'
         Write-Output -1
     }
 }
@@ -190,7 +189,7 @@ function Invoke-DsMaintenance {
 function Set-DsComputerName {
     [CmdletBinding(SupportsShouldProcess)]
     param (
-        [parameter()][ValidateRange(3,15)][int] $MaxNameLength = 15,
+        [parameter()][ValidateRange(3,63)][int] $MaxNameLength = 15,
         [parameter()][ValidateSet('Prefix','Suffix','None')][string] $FormCode = 'Prefix',
         [parameter()][switch] $NoHyphen,
         [parameter()][switch] $Reboot
@@ -253,13 +252,13 @@ function Install-DsPackages {
         if (!(Test-Path (Join-Path $env:ProgramData "Chocolatey\choco.exe"))) {
             Write-Host "installing chocolatey" -ForegroundColor cyan
             Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-            Write-Verbose "chocolatey has landed!"
+            Write-DsLog -Message "chocolatey has landed!"
         }
         cup $Packages -y
         Write-Output 0
     }
     catch {
-        Write-Error $Error[0].Exception.Message
+        Write-DsLog -Message $Error[0].Exception.Message -Category Error
         Write-Output -1
     }
 }
@@ -372,16 +371,16 @@ function Set-DsPowerPlan {
                 POWERCFG -SETACTIVE $ppguid
                 $newScheme = POWERCFG -GETACTIVESCHEME
                 $newScheme = $($newScheme.Split('(')[1]).Replace(')','')
-                Write-Host "Active plan is now $newScheme"
+                Write-DsLog -Message "Active plan is now $newScheme"
             }
             else {
-                Write-Host "Current plan is already $PlanName"
+                Write-DsLog -Message "Current plan is already $PlanName"
             }
         }
         Write-Output $result
     }
     catch {
-        Write-Error $Error[0].Exception.Message 
+        Write-DsLog -Message $Error[0].Exception.Message -Category Error
     }
 }
 
@@ -405,7 +404,7 @@ function Disable-DsMachinePasswordSync {
         New-Item -Path HKLM:\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters -Name DisablePasswordChange -Value 1 -ItemType DWORD
     }
     catch {
-        Write-Error $Error[0].Exception.Message
+        Write-DsLog -Message $Error[0].Exception.Message -Category Error
     }
 }
 
@@ -430,7 +429,7 @@ function Add-DsTaskbarShortcut {
         [string] $Target
     )
     if (!(Test-Path $Target)) {
-        Write-Warning "You freaking dumbass!!! $Target does not exist"
+        Write-Warning "ooof!!! $Target does not exist"
         break
     }
     try {
@@ -511,6 +510,7 @@ function Set-DsWin10StartMenu {
         [ValidateSet('RecentApps','ContextMenu','PeopleIcon')]
         [string] $FeatureName
     )
+    Write-DsLog -Message "setting feature: $FeatureName"
     switch ($FeatureName) {
         'RecentApps' {
             New-Item -Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\Explorer -Name HideRecentlyAddedApps -Value 1 -ItemType DWORD
@@ -545,23 +545,15 @@ function Get-DsLocalGroupMembers {
     )  
     begin {}
     process {
-        # If the account name of the computer object was passed in, it will 
-        # end with a $. Get rid of it so it doesn't screw up the WMI query.
         $ComputerName = $ComputerName.Replace("`$", '')
-
-        # Initialize an array to hold the results of our query.
         $arr = @()
-
-        # Get hostname of remote system.  $computername could reference cluster/alias name.  Need real hostname for subsequent WMI query.
         $hostname = (Get-WmiObject -ComputerName $ComputerName -Class Win32_ComputerSystem).Name
         $wmi = Get-WmiObject -ComputerName $ComputerName -Query "SELECT * FROM Win32_GroupUser WHERE GroupComponent=`"Win32_Group.Domain='$Hostname',Name='$GroupName'`""
-
-        # Parse out the username from each result and append it to the array.
         if ($null -ne $wmi) {
             foreach ($item in $wmi) {
-                $data = $item.PartComponent -split "\,"
+                $data   = $item.PartComponent -split "\,"
                 $domain = ($data[0] -split "=")[1]
-                $name = ($data[1] -split "=")[1]
+                $name   = ($data[1] -split "=")[1]
                 $arr += ("$domain\$name").Replace("""","")
                 [Array]::Sort($arr)
             }
@@ -570,7 +562,7 @@ function Get-DsLocalGroupMembers {
         #return $hash
         return $arr
     }
-    end{}
+    end {}
 }
 
 <#
@@ -592,6 +584,7 @@ function Set-DsWindowsTelemetry {
         [ValidateSet('Enable','Disable')][string] $State
     )
     try {
+        Write-DsLog -Message "setting windows telemetry to $State"
         if ($State -eq 'Disable') {
             New-Item -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows\DataCollection' -Name 'AllowTelemetry' -ItemType DWORD -Value 0 -Force
             Get-Service -Name "diagtrack" | Stop-Service -Force -ErrorAction SilentlyContinue
@@ -605,7 +598,7 @@ function Set-DsWindowsTelemetry {
         }
     }
     catch {
-        Write-Error $Error[0].Exception.Message
+        Write-DsLog -Message $Error[0].Exception.Message -Category Error
     }
 }
 
@@ -617,17 +610,19 @@ function Show-DsFileExtensions {
     )
     if ($Enable -eq $True) {$v = 1} else {$v = 0}
     try {
+        Write-DsLog -Message "setting windows explorer file extensions display to $Enable"
         $key = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced"
         Set-ItemProperty -Path $key -Name "HideFileExt" -Value $v -Force
         if ($RestartShell) {
+            Write-DsLog -Message "restarting explorer shell process"
             Get-Process -Name "explorer" | Stop-Process -Force
         }
         else {
-            Write-Warning "change will take effect after Explorer shell is restarted or user logs off"
+            Write-DsLog -Message "change will take effect after Explorer shell is restarted or user logs off" -Category Warning
         }
     }
     catch {
-        Write-Error $Error[0].Exception.Message
+        Write-DsLog -Message $Error[0].Exception.Message -Category Error
     }
 }
 
@@ -646,6 +641,7 @@ function Show-DsExplorerMenuBar {
     #>
     try {
         if ($AllUsers) {
+            Write-DsLog -Message "setting explorer ribbon menu display to $Enable (all users)"
             if ($Enable -eq $True) {$v = 4} else {$v = 0}
             $key = 'HKLM:\SOFTWARE\Policies\Microsoft\Windows\Explorer'
             $val = 'ExplorerRibbonStartsMinimized' 
@@ -653,27 +649,13 @@ function Show-DsExplorerMenuBar {
             New-ItemProperty -Path $key -Name $val -Value $v -PropertyType DWORD -Force
         }
         else {
+            Write-DsLog -Message "setting explorer ribbon menu display to $Enable (current user)"
             if ($Enable -eq $True) {$v = 0} else {$v = 1}
             $key = 'HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Ribbon'
             Set-ItemProperty -Path $key -Name 'MinimizedStateTabletModeOff' -Value $v -Force
-            <#
-            HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Ribbon
-            
-            (When Tablet Mode off)
-            MinimizedStateTabletModeOff DWORD
-
-            0 = Always show (expand)
-            1 = Always hide (minimize)
-
-            (When Tablet Mode on)
-            MinimizedStateTabletModeOn DWORD
-
-            0 = Always show (expand)
-            1 = Always hide (minimize)
-            #>
         }
     }
     catch {
-        Write-Error $Error[0].Exception.Message
+        Write-DsLog -Message $Error[0].Exception.Message -Category Error
     }
 }
