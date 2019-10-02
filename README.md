@@ -8,5 +8,9 @@ Blah blah blah, yap yap yap, yappity yap yap.
 ## Examples
 
 ```powershell
-Invoke-DsMaintenance -Update 'All' -Verbose
+Get-Command -Module ds-utils
+
+Get-Help <function-name> -Examples
+
+Get-Help <function-name> -Online
 ```
