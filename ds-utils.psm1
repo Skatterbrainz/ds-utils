@@ -547,6 +547,9 @@ function Set-DsWin10StartMenu {
             New-Item -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\People -Name PeopleBand -Value 0 -ItemType DWORD
         }
     }
+<<<<<<< HEAD
+}
+=======
 }
 
 <#
@@ -686,7 +689,6 @@ function Show-DsExplorerMenuBar {
 }
 
 # By Trevor Jones - https://smsagent.blog/2015/06/25/translating-error-codes-for-windows-and-configuration-manager/
-
 function Convert-ErrorCode {
     [CmdletBinding()]
     param (
