@@ -684,3 +684,22 @@ function Show-DsExplorerMenuBar {
         Write-DsLog -Message $Error[0].Exception.Message -Category Error
     }
 }
+
+# By Trevor Jones - https://smsagent.blog/2015/06/25/translating-error-codes-for-windows-and-configuration-manager/
+
+function Convert-ErrorCode {
+    [CmdletBinding()]
+    param (
+        [parameter(Mandatory=$True,ParameterSetName='Decimal')] [int64]$DecimalErrorCode,
+        [parameter(Mandatory=$True,ParameterSetName='Hex')] $HexErrorCode
+    )
+    if ($DecimalErrorCode) {
+        $hex = '{0:x}' -f $DecimalErrorCode
+        $hex = "0x" + $hex
+        $hex
+    }
+    if ($HexErrorCode) {
+        $DecErrorCode = $HexErrorCode.ToString()
+        $DecErrorCode
+    }
+}
