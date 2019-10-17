@@ -1,5 +1,3 @@
-#requires -RunAsAdministrator
-
 <#
 .SYNOPSIS
     Return true if a reboot is pending (local machine)
@@ -33,18 +31,23 @@ function Test-DsRebootPending {
             TestType = 'NonNullValue'
         }
     )
+    $result = $false
     foreach ($test in $pendingRebootTests) {
         $result = Invoke-Command -ScriptBlock $test.Test
         if ($test.TestType -eq 'ValueExists' -and $result) {
-            $true
+            Write-Verbose "test: $($test.Name) = TRUE"
+            $result = $true
         }
         elseif ($test.TestType -eq 'NonNullValue' -and $result -and $result.($test.Name)) {
-            $true
+            Write-Verbose "test: $($test.Name) = TRUE"
+            $result = $true
         }
         else {
-            $false
+            Write-Verbose "test: $($test.Name) = FALSE"
+            #$false
         }
     }
+    $result
 }
 
 <#
