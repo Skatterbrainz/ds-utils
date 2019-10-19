@@ -11,6 +11,7 @@
 .LINK
     https://4sysops.com/archives/use-powershell-to-test-if-a-windows-server-is-pending-a-reboot/
 #>
+
 function Test-DsRebootPending {
     [CmdletBinding()]
     param ()
@@ -69,6 +70,7 @@ function Test-DsRebootPending {
 .NOTES
     Internal function
 #>
+
 function Write-DsLog {
     [CmdletBinding()]
     param (
@@ -119,6 +121,7 @@ function Write-DsLog {
 .LINK
     https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Invoke-DsMaintenance.md
 #>
+
 function Invoke-DsMaintenance {
     [CmdletBinding()]
     param (
@@ -214,6 +217,7 @@ function Invoke-DsMaintenance {
 .LINK
     https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Set-DsComputerName.md
 #>
+
 function Set-DsComputerName {
     [CmdletBinding(SupportsShouldProcess)]
     param (
@@ -550,9 +554,6 @@ function Set-DsWin10StartMenu {
             New-Item -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\People -Name PeopleBand -Value 0 -ItemType DWORD
         }
     }
-<<<<<<< HEAD
-}
-=======
 }
 
 <#
