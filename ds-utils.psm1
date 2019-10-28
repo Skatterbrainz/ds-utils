@@ -125,7 +125,7 @@ function Write-DsLog {
 function Invoke-DsMaintenance {
     [CmdletBinding()]
     param (
-        [parameter()] [ValidateSet('All','Modules','Windows','Packages')] [string] $Update = 'All',
+        [parameter(Position=0)] [ValidateSet('All','Modules','Windows','Packages')] [string] $Update = 'All',
         [parameter()] [switch] $ForceReboot,
         [parameter()] [switch] $ForceUpdate
     )
@@ -221,7 +221,7 @@ function Invoke-DsMaintenance {
 function Set-DsComputerName {
     [CmdletBinding(SupportsShouldProcess)]
     param (
-        [parameter()][ValidateRange(3,63)][int] $MaxNameLength = 15,
+        [parameter(Position=0)][ValidateRange(3,63)][int] $MaxNameLength = 15,
         [parameter()][ValidateSet('Prefix','Suffix','None')][string] $FormCode = 'Prefix',
         [parameter()][switch] $NoHyphen,
         [parameter()][switch] $Reboot
@@ -276,7 +276,7 @@ function Set-DsComputerName {
 function Install-DsPackages {
     [CmdletBinding()]
     param (
-        [parameter()]
+        [parameter(Position=0)]
         [ValidateNotNullOrEmpty()]
         [string[]] $Packages = ('dotnet3.5','7zip','notepadplusplus','adobereader','googlechrome')
     )
