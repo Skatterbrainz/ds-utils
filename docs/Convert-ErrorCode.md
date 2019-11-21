@@ -1,23 +1,29 @@
 ---
 external help file: ds-utils-help.xml
 Module Name: ds-utils
-online version: https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Set-DsWin10StartMenu.md
+online version: https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Add-DsTaskbarShortcut.md
 schema: 2.0.0
 ---
 
-# Set-DsWin10StartMenu
+# Convert-ErrorCode
 
 ## SYNOPSIS
-Customize Start Menu and TaskBar
+{{ Fill in the Synopsis }}
 
 ## SYNTAX
 
+### Decimal
 ```
-Set-DsWin10StartMenu [-FeatureName] <String> [<CommonParameters>]
+Convert-ErrorCode -DecimalErrorCode <Int64> [<CommonParameters>]
+```
+
+### Hex
+```
+Convert-ErrorCode -HexErrorCode <Object> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-(same)
+{{ Fill in the Description }}
 
 ## EXAMPLES
 
@@ -30,16 +36,31 @@ PS C:\> {{ Add example code here }}
 
 ## PARAMETERS
 
-### -FeatureName
-Name of feature to configure or disable
+### -DecimalErrorCode
+{{ Fill DecimalErrorCode Description }}
 
 ```yaml
-Type: String
-Parameter Sets: (All)
+Type: Int64
+Parameter Sets: Decimal
 Aliases:
 
 Required: True
-Position: 1
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -HexErrorCode
+{{ Fill HexErrorCode Description }}
+
+```yaml
+Type: Object
+Parameter Sets: Hex
+Aliases:
+
+Required: True
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -50,12 +71,11 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
+### None
+
 ## OUTPUTS
 
+### System.Object
 ## NOTES
-https://www.howto-connect.com/registry-hacks-for-start-menu-and-taskbar-in-windows-10/
 
 ## RELATED LINKS
-
-[https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Set-DsWin10StartMenu.md](https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Set-DsWin10StartMenu.md)
-

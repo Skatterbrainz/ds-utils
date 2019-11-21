@@ -710,6 +710,19 @@ function Convert-ErrorCode {
     }
 }
 
+<#
+.SYNOPSIS
+    Set permissions on file or registry key
+.DESCRIPTION
+    Set ACLs on folder, file and/or registry key
+.PARAMETER RegKey
+    Registry key path. Example HKLM:\SOFTWARE\Contoso\AppName
+.PARAMETER FilePath
+    Folder or File path. Example "c:\toiletflush\crapware"
+.LINK
+    https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Set-DsResourcePermissions.md
+#>
+
 function Set-DsResourcePermissions {
     [CmdletBinding()]
     param (

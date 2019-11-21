@@ -1,23 +1,23 @@
 ---
 external help file: ds-utils-help.xml
 Module Name: ds-utils
-online version: https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-DsLocalGroupMembers.md
+online version: https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Set-DsResourcePermissions.md
 schema: 2.0.0
 ---
 
-# Get-DsLocalGroupMembers
+# Set-DsResourcePermissions
 
 ## SYNOPSIS
-Returns local group members
+Set permissions on file or registry key
 
 ## SYNTAX
 
 ```
-Get-DsLocalGroupMembers [[-ComputerName] <String>] [[-GroupName] <String>] [<CommonParameters>]
+Set-DsResourcePermissions [[-RegKey] <String>] [[-FilePath] <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-I hate repeating myself
+Set ACLs on folder, file and/or registry key
 
 ## EXAMPLES
 
@@ -30,25 +30,25 @@ PS C:\> {{ Add example code here }}
 
 ## PARAMETERS
 
-### -ComputerName
-Name of computer (if remote).
-Default = 'localhost'
+### -RegKey
+Registry key path.
+Example HKLM:\SOFTWARE\Contoso\AppName
 
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: Name
+Aliases:
 
 Required: False
 Position: 1
-Default value: Localhost
-Accept pipeline input: True (ByPropertyName, ByValue)
+Default value: HKLM:\SOFTWARE\ToiletBrain\CrappyDoucheware
+Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -GroupName
-Name of local group.
-Default = 'Administrators'
+### -FilePath
+Folder or File path.
+Example "c:\toiletflush\crapware"
 
 ```yaml
 Type: String
@@ -57,7 +57,7 @@ Aliases:
 
 Required: False
 Position: 2
-Default value: Administrators
+Default value: C:\Program Files (x86)\ToiletBrain\Crappy Doucheware
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -70,9 +70,8 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## OUTPUTS
 
 ## NOTES
-Adapted from https://gallery.technet.microsoft.com/scriptcenter/List-local-group-members-c25dbcc4
 
 ## RELATED LINKS
 
-[https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-DsLocalGroupMembers.md](https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-DsLocalGroupMembers.md)
+[https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Set-DsResourcePermissions.md](https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Set-DsResourcePermissions.md)
 
