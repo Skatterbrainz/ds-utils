@@ -709,3 +709,35 @@ function Convert-ErrorCode {
         $DecErrorCode
     }
 }
+
+function Set-DsResourcePermissions {
+    [CmdletBinding()]
+    param (
+        [parameter()][string] $RegKey = "HKLM:\SOFTWARE\ToiletBrain\CrappyDoucheware",
+        [parameter()][string] $FilePath = 'C:\Program Files (x86)\ToiletBrain\Crappy Doucheware'
+    )
+    if (![string]::IsNullOrEmpty($RegKey)) {
+        if (Test-Path $RegKey) {
+            Write-Verbose "applying permissions to registry: $RegKey"
+            try {
+                Grant-CPermission -Path $regkey -Identity "Users" -Permission ReadKey,WriteKey,SetValue,EnumerateSubKeys,QueryValues
+                Write-Verbose "permissions have been applied"
+            }
+            catch {
+                Write-Error "the toilet won't flush. call that sr. executive architect guy. $($Error[0].Exception.Message)"
+            }
+        }
+    }
+    if (![string]::IsNullOrEmpty($FilePath)) {
+        if (Test-Path $FilePath) {
+            Write-Verbose "applying permissions to filepath: $FilePath"
+            try {
+                Grant-CPermission -Path $filepath -Identity "Users" -Permission Modify
+                Write-Verbose "permissions have been applied"
+            }
+            catch {
+                Write-Error "you can't flush beer cans in the toilet! $($Error[0].Exception.Message)"
+            }
+        }
+    }
+}
