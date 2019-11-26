@@ -754,3 +754,115 @@ function Set-DsResourcePermissions {
         }
     }
 }
+
+<#
+.SYNOPSIS
+    Join-Path for WEB URL strings
+.DESCRIPTION
+    Same as the SYNOPSIS
+.PARAMETER Path
+    Base path string
+.PARAMETER ChildPath
+    Child path string to append to Path
+.EXAMPLE
+    Join-Url -Path "https://www.contoso.com" -ChildPath "sales"
+    returns "https://www.contoso.com/sales"
+.EXAMPLE
+    Join-Url -Path "https://www.contoso.com/sales/" -ChildPath "accounts"
+    returns "https://www.contoso.com/sales/accounts"
+.LINK
+    https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Join-Url.md
+#>
+function Join-Url {
+    param (
+        [parameter(Mandatory,Position=0)][ValidateNotNullOrEmpty()][string] $Path, 
+        [parameter(Mandatory,Position=1)][ValidateNotNullOrEmpty()][string] $ChildPath
+    )
+    if ($Path.EndsWith('/')) {
+        Write-Output "$Path$ChildPath"
+    }
+    else {
+        Write-Output "$Path/$ChildPath"
+    }
+}
+
+<#
+.SYNOPSIS
+    Opens link to Microsoft Doc for Variable Data Type
+.DESCRIPTION
+    Opens a link in a web browser to the Microsoft Doc page for the
+    data type associated with a PowerShell variable. The Search parameter
+    searches Google for the variable type, for situations when there is no
+    direct MS Doc page available.
+.PARAMETER VariableRef
+    PowerShell variable (object)
+.PARAMETER Search
+    Switch to perform search instead of direct link
+.EXAMPLE
+    $myVar | Get-DocRef
+    If $myVar is of type System.Array, opens 
+.EXAMPLE
+.LINK
+    https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-DocRef.md
+#>
+function Get-DocRef {
+	param (
+		[parameter(Mandatory,ValueFromPipeline=$true,Position=0)] $VariableRef,
+		[parameter()][switch] $Search
+	)
+	if ($null -ne $VariableRef) {
+		$vtype = $VariableRef.GetType().BaseType.FullName
+		if ($Search) {
+			$url = "https://www.google.com/search?source=hp&q=site%3Adocs.microsoft.com`+$vtype"
+		}
+		else {
+			$url = "https://docs.microsoft.com/en-us/dotnet/api/$vtype"
+		}
+		Write-Host "querying $url"
+		start $url
+	}
+}
+
+<#
+.SYNOPSIS
+    Show formatted basic syntax for a function or cmdlet
+.DESCRIPTION
+    Show formatted basic syntax for a function or cmdlet
+.PARAMETER Command
+    Name of command / cmdlet / function
+.PARAMETER Normalize
+    Displays output on 1-line. Default is stacked view
+.EXAMPLE
+    Get-Syntax Get-DocRef
+.EXAMPLE
+    Get-Syntax Get-DocRef -Normalize
+.NOTES
+    Borrowed entirely from [Brett Miller] with very minor changes: https://github.com/brettmillerb/Toolbox
+.LINK
+    https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-Syntax.md
+#>
+function Get-Syntax {
+    [CmdletBinding()]
+    param (
+        [parameter(Mandatory)] $Command,
+        [parameter()][switch] $Normalize
+    )
+
+    $check = Get-Command -Name $Command
+
+    $params = @{
+        Name =  if ($check.CommandType -eq 'Alias') {
+                    Get-Command -Name $check.Definition
+                }
+                else {
+                    $Command
+                }
+        Syntax = $true
+    }
+    if ($Normalize) {
+        Get-Command @params
+    }
+    else {
+        (Get-Command @params) -replace '(\s(?=\[)|\s(?=-))', "`r`n   "
+    }
+}
