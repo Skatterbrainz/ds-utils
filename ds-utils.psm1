@@ -634,6 +634,20 @@ function Set-DsWindowsTelemetry {
     }
 }
 
+<#
+.SYNOPSIS
+    Enable display of file extensions in Windows Explorer
+.DESCRIPTION
+    Enable display of file extensions in Windows Explorer
+.PARAMETER Enable
+    Toggle display on (Enable $True) or off (Enable $False)
+.PARAMETER RestartShell
+    Restart the Explorer shell to apply changes
+.EXAMPLE
+    Show-DsFileExtensions -Enable $True -RestartShell
+.LINK
+    https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Show-DsFileExtensions.md
+#>
 function Show-DsFileExtensions {
     [CmdletBinding()]
     param (
@@ -658,6 +672,20 @@ function Show-DsFileExtensions {
     }
 }
 
+<#
+.SYNOPSIS
+    Enable Display of Menu Bar in Windows Explorer
+.DESCRIPTION
+    DO I really need to explain it again? Just read the SYNOPSIS info
+.PARAMETER Enable
+    Toggle display on (Enable $True) or off (Enable $False)
+.PARAMETER AllUsers
+    Apply change to all local user profiles (default is current user only)
+.EXAMPLE
+    Show-DsExplorerMenuBar -Enable $True -AllUsers
+.LINK
+    https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Show-DsExplorerMenu.md
+#>
 function Show-DsExplorerMenuBar {
     [CmdletBinding()]
     param (
@@ -714,11 +742,14 @@ function Convert-ErrorCode {
 .SYNOPSIS
     Set permissions on file or registry key
 .DESCRIPTION
-    Set ACLs on folder, file and/or registry key
+    Set ACLs on folder, file and/or registry key to allow local USERS group
+    to have change/modify access
 .PARAMETER RegKey
     Registry key path. Example HKLM:\SOFTWARE\Contoso\AppName
 .PARAMETER FilePath
     Folder or File path. Example "c:\toiletflush\crapware"
+.EXAMPLE
+    Set-DsResourcePermissions -RegKey "HKLM:\SOFTWARE\ToiletBrain\CrappyDoucheware" -FilePath "$env:ProgramFiles\ToiletBrain"
 .LINK
     https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Set-DsResourcePermissions.md
 #>
