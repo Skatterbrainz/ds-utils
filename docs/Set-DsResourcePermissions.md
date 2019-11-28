@@ -17,16 +17,15 @@ Set-DsResourcePermissions [[-RegKey] <String>] [[-FilePath] <String>] [<CommonPa
 ```
 
 ## DESCRIPTION
-Set ACLs on folder, file and/or registry key
+Set ACLs on folder, file and/or registry key to allow local USERS group
+to have change/modify access
 
 ## EXAMPLES
 
-### Example 1
-```powershell
-PS C:\> {{ Add example code here }}
+### EXAMPLE 1
 ```
-
-{{ Add example description here }}
+Set-DsResourcePermissions -RegKey "HKLM:\SOFTWARE\ToiletBrain\CrappyDoucheware" -FilePath "$env:ProgramFiles\ToiletBrain"
+```
 
 ## PARAMETERS
 

@@ -1,14 +1,14 @@
 ---
 external help file: ds-utils-help.xml
 Module Name: ds-utils
-online version: https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Disable-DsWindowsTelemetry.md
+online version: https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Show-DsExplorerMenu.md
 schema: 2.0.0
 ---
 
 # Show-DsExplorerMenuBar
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Enable Display of Menu Bar in Windows Explorer
 
 ## SYNTAX
 
@@ -17,21 +17,35 @@ Show-DsExplorerMenuBar [-Enable] <Boolean> [-AllUsers] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+DO I really need to explain it again?
+Just read the SYNOPSIS info
 
 ## EXAMPLES
 
-### Example 1
-```powershell
-PS C:\> {{ Add example code here }}
+### EXAMPLE 1
 ```
-
-{{ Add example description here }}
+Show-DsExplorerMenuBar -Enable $True -AllUsers
+```
 
 ## PARAMETERS
 
+### -Enable
+Toggle display on (Enable $True) or off (Enable $False)
+
+```yaml
+Type: Boolean
+Parameter Sets: (All)
+Aliases:
+
+Required: True
+Position: 1
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -AllUsers
-{{ Fill AllUsers Description }}
+Apply change to all local user profiles (default is current user only)
 
 ```yaml
 Type: SwitchParameter
@@ -40,22 +54,7 @@ Aliases:
 
 Required: False
 Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Enable
-{{ Fill Enable Description }}
-
-```yaml
-Type: Boolean
-Parameter Sets: (All)
-Aliases:
-
-Required: True
-Position: 0
-Default value: None
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -65,11 +64,11 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
-
 ## OUTPUTS
 
-### System.Object
 ## NOTES
 
 ## RELATED LINKS
+
+[https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Show-DsExplorerMenu.md](https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Show-DsExplorerMenu.md)
+
