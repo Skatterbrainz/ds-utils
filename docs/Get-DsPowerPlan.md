@@ -1,40 +1,45 @@
 ---
 external help file: ds-utils-help.xml
 Module Name: ds-utils
-online version: https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-DsPowerPlan.md
+online version: https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-DsLocalGroupMembers.md
 schema: 2.0.0
 ---
 
 # Get-DsPowerPlan
 
 ## SYNOPSIS
-Returns the active Power Plan Name
+{{ Fill in the Synopsis }}
 
 ## SYNTAX
 
 ```
-Get-DsPowerPlan
+Get-DsPowerPlan [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Returns the active Power Plan Name
+{{ Fill in the Description }}
 
 ## EXAMPLES
 
-### EXAMPLE 1
+### Example 1
+```powershell
+PS C:\> {{ Add example code here }}
 ```
-Get-DsPowerPlan
-```
+
+{{ Add example description here }}
 
 ## PARAMETERS
 
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
 ## INPUTS
+
+### None
 
 ## OUTPUTS
 
+### System.Object
 ## NOTES
 
 ## RELATED LINKS
-
-[https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-DsPowerPlan.md](https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-DsPowerPlan.md)
-
