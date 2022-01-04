@@ -10,10 +10,16 @@ function Invoke-DsCleanModules {
 		Optional. If included: attempt removal of older module versions
 	.EXAMPLE
 		Invoke-DsCleanModules
+		Analyze all installed modules
 	.EXAMPLE
 		Invoke-DsCleanModules -Name Mailozaurr
+		Analyze module Mailozaurr only
+	.EXAMPLE
+		Invoke-DsCleanModules -Name Mailozaurr -CleanUp
+		Analyze and clean-up module Mailozaurr only
 	.EXAMPLE
 		Invoke-DsCleanModules -CleanUp
+		Analyze and clean-up all installed modules
 	.LINK
 		https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Invoke-DsCleanModules.md
 	#>
