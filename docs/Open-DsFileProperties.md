@@ -5,38 +5,33 @@ online version: https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Join-
 schema: 2.0.0
 ---
 
-# Join-Url
+# Open-DsFileProperties
 
 ## SYNOPSIS
-Join-Path for WEB URL strings
+{{ Fill in the Synopsis }}
 
 ## SYNTAX
 
 ```
-Join-Url [-Path] <String> [-ChildPath] <String> [<CommonParameters>]
+Open-DsFileProperties [-FilePath] <String> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Same as the SYNOPSIS
+{{ Fill in the Description }}
 
 ## EXAMPLES
 
-### EXAMPLE 1
-```
-Join-Url -Path "https://www.contoso.com" -ChildPath "sales"
-returns "https://www.contoso.com/sales"
+### Example 1
+```powershell
+PS C:\> {{ Add example code here }}
 ```
 
-### EXAMPLE 2
-```
-Join-Url -Path "https://www.contoso.com/sales/" -ChildPath "accounts"
-returns "https://www.contoso.com/sales/accounts"
-```
+{{ Add example description here }}
 
 ## PARAMETERS
 
-### -Path
-Base path string
+### -FilePath
+{{ Fill FilePath Description }}
 
 ```yaml
 Type: String
@@ -44,22 +39,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: True
-Position: 1
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -ChildPath
-Child path string to append to Path
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: True
-Position: 2
+Position: 0
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -70,11 +50,11 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
+### None
+
 ## OUTPUTS
 
+### System.Object
 ## NOTES
 
 ## RELATED LINKS
-
-[https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Join-Url.md](https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Join-Url.md)
-

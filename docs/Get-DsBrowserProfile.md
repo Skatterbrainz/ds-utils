@@ -1,56 +1,52 @@
 ---
 external help file: ds-utils-help.xml
 Module Name: ds-utils
-online version: https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Invoke-DsCleanModules.md
+online version: https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-DsBrowserProfile.md
 schema: 2.0.0
 ---
 
-# Invoke-DsCleanModules
+# Get-DsBrowserProfile
 
 ## SYNOPSIS
-Remove older PowerShell module versions
+Query Browser Profiles
 
 ## SYNTAX
 
 ```
-Invoke-DsCleanModules [[-Name] <String>] [-CleanUp] [<CommonParameters>]
+Get-DsBrowserProfile [[-Browser] <String>] [-AllUsers] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Remove older PowerShell module versions
+Query Browser profiles, returning ID, Name and UserName.
+For current user or all users
 
 ## EXAMPLES
 
 ### EXAMPLE 1
 ```
-Invoke-DsCleanModules
-Analyze all installed modules
+Get-DsBrowserProfile
 ```
 
 ### EXAMPLE 2
 ```
-Invoke-DsCleanModules -Name Mailozaurr
-Analyze module Mailozaurr only
+Get-DsBrowserProfile -Browser Edge
 ```
 
 ### EXAMPLE 3
 ```
-Invoke-DsCleanModules -Name Mailozaurr -CleanUp
-Analyze and clean-up module Mailozaurr only
-```
-
-### EXAMPLE 4
-```
-Invoke-DsCleanModules -CleanUp
-Analyze and clean-up all installed modules
+Get-DsBrowserProfile -Browser Chrome -AllUsers
 ```
 
 ## PARAMETERS
 
-### -Name
+### -Browser
 Optional.
-Name of specific module.
-Default is all modules
+Browser app to target for query (if installed)
+* Default = Get default browser from registry query
+* Chrome
+* Edge
+* Brave
+* Firefox
 
 ```yaml
 Type: String
@@ -59,14 +55,13 @@ Aliases:
 
 Required: False
 Position: 1
-Default value: None
+Default value: Default
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -CleanUp
-Optional.
-If included: attempt removal of older module versions
+### -AllUsers
+Query all users on the computer
 
 ```yaml
 Type: SwitchParameter
@@ -91,5 +86,5 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-[https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Invoke-DsCleanModules.md](https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Invoke-DsCleanModules.md)
+[https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-DsBrowserProfile.md](https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-DsBrowserProfile.md)
 
