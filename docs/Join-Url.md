@@ -24,14 +24,16 @@ Same as the SYNOPSIS
 ### EXAMPLE 1
 ```
 Join-Url -Path "https://www.contoso.com" -ChildPath "sales"
-returns "https://www.contoso.com/sales"
 ```
+
+returns "https://www.contoso.com/sales"
 
 ### EXAMPLE 2
 ```
 Join-Url -Path "https://www.contoso.com/sales/" -ChildPath "accounts"
-returns "https://www.contoso.com/sales/accounts"
 ```
+
+returns "https://www.contoso.com/sales/accounts"
 
 ## PARAMETERS
 

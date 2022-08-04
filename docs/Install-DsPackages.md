@@ -24,8 +24,9 @@ Install Chocolatey and List of Packages
 ### EXAMPLE 1
 ```
 Install-DsPackages
-Installs the default list of packages
 ```
+
+Installs the default list of packages
 
 ### EXAMPLE 2
 ```

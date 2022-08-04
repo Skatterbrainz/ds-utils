@@ -1,37 +1,35 @@
 ---
 external help file: ds-utils-help.xml
 Module Name: ds-utils
-online version: https://github.com/Skatterbrainz/ds-utils/blob/master/docs/New-DsShortcut.md
+online version: https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-DsShortcut.md
 schema: 2.0.0
 ---
 
-# Open-DsFileProperties
+# Get-DsShortcut
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Get-DsShortcut
 
 ## SYNTAX
 
 ```
-Open-DsFileProperties [-FilePath] <String> [<CommonParameters>]
+Get-DsShortcut [-Path] <String> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+Return shortcut properties
 
 ## EXAMPLES
 
-### Example 1
-```powershell
-PS C:\> {{ Add example code here }}
+### EXAMPLE 1
 ```
-
-{{ Add example description here }}
+Get-DsShortcut -Path "$($env:USERPROFILE)\Desktop\GitHub Desktop.lnk"
+```
 
 ## PARAMETERS
 
-### -FilePath
-{{ Fill FilePath Description }}
+### -Path
+Path and name of .lnk file
 
 ```yaml
 Type: String
@@ -39,7 +37,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: True
-Position: 0
+Position: 1
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -50,11 +48,11 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
-
 ## OUTPUTS
 
-### System.Object
 ## NOTES
 
 ## RELATED LINKS
+
+[https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-DsShortcut.md](https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-DsShortcut.md)
+
