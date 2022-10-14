@@ -28,9 +28,8 @@ direct MS Doc page available.
 ### EXAMPLE 1
 ```
 $myVar | Get-DocRef
-```
-
 If $myVar is of type System.Array, opens
+```
 
 ### EXAMPLE 2
 ```
