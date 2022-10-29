@@ -4,15 +4,15 @@ function Set-DsPowerPlan {
 		Set Active Power Plan
 	.DESCRIPTION
 		Set Active Power Plan from a list of standard names
-	.PARAMETER PlanName
-		Name of power plan to set active.    
+	.PARAMETER Plan
+		Name of power plan to set active.
 		Balanced, Performance, HighPerformance, PowerSaver, EnergyStar, Custom
 	.PARAMETER FileName
 		PowerPlan file to import and set Active, when PlanName is set to Custom
 	.EXAMPLE
-		Set-DsPowerPlan -PlanName "Performance"
+		Set-DsPowerPlan -Name "Performance"
 	.EXAMPLE
-		Set-DsPowerPlan -PlanName "Custom" -FileName "c:\customplan.pow"
+		Set-DsPowerPlan -Name "Custom" -FileName "c:\customplan.pow"
 	.LINK
 		https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Set-DsPowerPlan.md
 	#>
@@ -20,7 +20,7 @@ function Set-DsPowerPlan {
 	param (
 		[parameter(Mandatory=$True, HelpMessage="Power scheme name")]
 			[ValidateSet('Balanced','HighPerformance','Performance','PowerSaver','EnergyStar','Custom')]
-			[string] $PlanName,
+			[alias('PlanName','Plan')][string] $Name,
 		[parameter(Mandatory=$False, HelpMessage="Custom power plan filename")]
 			[ValidateNotNullOrEmpty()]
 			[string] $FileName = ""
@@ -33,7 +33,7 @@ function Set-DsPowerPlan {
 	#9586a712-fcb4-4a06-af4b-52803dfbb9db = Performance
 	try {
 		$result = 0
-		if ($PlanName -eq 'Custom') {
+		if ($Name -eq 'Custom') {
 			if (Test-Path -Path $FileName) {
 				POWERCFG -IMPORT $FileName
 			}
@@ -43,7 +43,7 @@ function Set-DsPowerPlan {
 			}
 		}
 		else {
-			switch ($PlanName) {
+			switch ($Name) {
 				'HighPerformance' {
 					$ppguid = '8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c'
 				}
@@ -70,7 +70,7 @@ function Set-DsPowerPlan {
 				Write-DsLog -Message "Active plan is now $newScheme"
 			}
 			else {
-				Write-DsLog -Message "Current plan is already $PlanName"
+				Write-DsLog -Message "Current plan is already $Name"
 			}
 		}
 		Write-Output $result

@@ -12,8 +12,6 @@ function Get-DsRegistryValue {
     Optional. Names of one or more computers (comma-delimited)
 .PARAMETER InputFile
     Optional. Path\Name of file containing computer names to query
-.PARAMETER OutputFile
-    Optional. Path\Name of CSV output file
 .PARAMETER ADGridSelect
     Optional. Prompt user to select computers read in from AD using a gridview listmenu
 .EXAMPLE
@@ -32,18 +30,15 @@ function Get-DsRegistryValue {
     $key = "HKLM:SOFTWARE\Policies\Microsoft\Windows NT\Printers\PointAndPrint"
     $val = "NoWarningNoElevationOnInstall"
     Get-DsRegistryValue -KeyPath $key -ValueName -InputFile "c:\temp\computers.txt"
-.NOTES
-    1.0.0 - 2022-08-04 - David Stein / https://github.com/Skatterbrainz
 .LINK
 	https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-DsRegistryValue.md
 #>
 	[CmdletBinding()]
 	param (
-		[parameter(Mandatory)][string][ValidateNotNullOrEmpty()]$KeyPath,
-		[parameter(Mandatory)][string][ValidateNotNullOrEmpty()]$ValueName,
-		[parameter()][string]$ComputerName = "",
+		[parameter(Mandatory)][alias('Key','KeyPath')][string][ValidateNotNullOrEmpty()]$Path,
+		[parameter(Mandatory)][alias('ValueName','Value')][string][ValidateNotNullOrEmpty()]$Name,
+		[parameter()][alias('Computer')][string]$ComputerName = "",
 		[parameter()][string]$InputFile = "",
-		[parameter()][string]$OutputFile = "",
 		[parameter()][switch]$ADGridSelect
 	)
 
@@ -68,32 +63,29 @@ function Get-DsRegistryValue {
 
 	if ($computers.Count -gt 0) {
 		$total = $computers.Count
+		Write-Verbose "searching $total computers"
 		$counter = 1
-		$output = @()
+		#$output = @()
+		[System.Collections.Generic.List[PSObject]]$output = @()
 		foreach ($computer in $computers) {
 			$response = $null
 			$response = Invoke-Command -ComputerName $computer -ScriptBlock {
 				$val = $null
 				try {
-					$val = Get-ItemProperty -Path $using:KeyPath -Name $using:ValueName -ErrorAction Stop
+					$val = Get-ItemProperty -Path $using:Path -Name $using:Name -ErrorAction Stop
 				}
 				catch {
 					$val = '(NotFound)'
 				}
 				[pscustomobject]@{
-					Path  = $using:KeyPath
-					Value = $using:ValueName
+					Path  = $using:Path
+					Value = $using:Name
 					Data  = $val
 				}
 			} | Select-Object PSComputerName, Path, Value, Data
 			$response
-			$output += $response
+			$output.Add($response)
 		}
-		if (![string]::IsNullOrWhiteSpace($OutputFile)) {
-			$output | Export-Csv -Path $OutputFile -NoTypeInformation -Force
-			Write-Host "Saved to $OutputFile"
-		} else {
-			$output
-		}
+		$output
 	}
 }

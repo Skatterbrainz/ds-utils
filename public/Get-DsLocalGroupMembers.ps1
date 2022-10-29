@@ -16,9 +16,9 @@ function Get-DsLocalGroupMembers {
 	[CmdletBinding()]
 	[OutputType()]
 	param (
-		[parameter(ValueFromPipeline=$true,ValueFromPipelineByPropertyName=$true)] [Alias("Name")] [string]$ComputerName = 'localhost', 
-		[string]$GroupName = "Administrators"  
-	)  
+		[parameter(ValueFromPipeline=$true,ValueFromPipelineByPropertyName=$true)] [Alias("Name")] [string]$ComputerName = 'localhost',
+		[parameter()][Alias('Group')][string]$GroupName = "Administrators"
+	)
 	begin {}
 	process {
 		$ComputerName = $ComputerName.Replace("`$", '')
@@ -34,8 +34,6 @@ function Get-DsLocalGroupMembers {
 				[Array]::Sort($arr)
 			}
 		}
-		#$hash = @{ComputerName=$ComputerName;Members=$arr}
-		#return $hash
 		return $arr
 	}
 	end {}

@@ -1,5 +1,5 @@
-
-function Install-DsPackages {
+function Install-Chocolatey {
+	#requires -RunAsAdministrator
 	<#
 	.SYNOPSIS
 		Install Chocolatey and List of Packages
@@ -9,27 +9,22 @@ function Install-DsPackages {
 		Name(s) of Chocolatey packages
 		Default = ('dotnet3.5','7zip','notepadplusplus','adobereader','googlechrome')
 	.EXAMPLE
-		Install-DsPackages
+		Install-Chocolatey
 		Installs the default list of packages
-	.EXAMPLE
-		Install-DsPackages -Packages ('visualstudiocode','git','github-desktop')
 	.LINK
 		https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Install-DsPackages.md
 	#>
 	[CmdletBinding()]
 	[OutputType()]
-	param (
-		[parameter(Position=0)]
-		[ValidateNotNullOrEmpty()]
-		[string[]] $Packages = ('dotnet3.5','7zip','notepadplusplus','adobereader','googlechrome')
-	)
+	param ()
 	try {
-		if (!(Test-Path (Join-Path $env:ProgramData "Chocolatey\choco.exe"))) {
+		if ([string]::IsNullOrWhiteSpace($env:ChocolateyInstall)) {
 			Write-Host "installing chocolatey" -ForegroundColor cyan
 			Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 			Write-DsLog -Message "chocolatey has landed!"
+		} else {
+			Write-Host "Chocolatey is already installed"
 		}
-		cup $Packages -y
 		Write-Output 0
 	}
 	catch {

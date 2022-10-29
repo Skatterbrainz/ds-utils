@@ -31,13 +31,13 @@ function New-DsShortcut {
 	#>
 	[CmdletBinding()]
 	param (
-		[parameter(Mandatory=$True)][string]$Name,
-		[parameter(Mandatory=$True)][string]$TargetFile,
-		[parameter()][string]$WorkingDirectory = "",
-		[parameter()][string]$Arguments = "",
+		[parameter(Mandatory=$True)][alias('ShortcutName')][string]$Name,
+		[parameter(Mandatory=$True)][alias('Target')][string]$TargetFile,
+		[parameter()][alias('WorkingPath')][string]$WorkingDirectory = "",
+		[parameter()][alias('Args')][string]$Arguments = "",
 		[parameter()][string][ValidateSet('Desktop','Documents','StartMenu','Favorites','AllUserDesktop','AllUsersStartMenu')]$Path = 'Desktop',
 		[parameter()][string][ValidateSet('Normal','Minimized','Maximized')]$WindowStyle = 'Normal',
-		[parameter()][string]$IconLocation = "",
+		[parameter()][alias('Icon')][string]$IconLocation = "",
 		[parameter()][string]$Description = "",
 		[parameter()][switch]$Replace
 	)
