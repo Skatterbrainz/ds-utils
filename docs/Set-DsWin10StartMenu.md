@@ -8,7 +8,7 @@ schema: 2.0.0
 # Set-DsWin10StartMenu
 
 ## SYNOPSIS
-Customize Start Menu and TaskBar
+Set-DsWin10StartMenu
 
 ## SYNTAX
 
@@ -17,7 +17,7 @@ Set-DsWin10StartMenu [-FeatureName] <String> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-(same)
+Customize Start Menu and TaskBar
 
 ## EXAMPLES
 

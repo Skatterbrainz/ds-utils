@@ -24,20 +24,23 @@ Run Ds-Utils Maintenance Tasks
 ### EXAMPLE 1
 ```
 Invoke-DsMaintenance -Update Modules
-Updates PowerShell modules only
 ```
+
+Updates PowerShell modules only
 
 ### EXAMPLE 2
 ```
 Invoke-DsMaintenance -ForceReboot
-Runs all update tasks and forces a restart at the end
 ```
+
+Runs all update tasks and forces a restart at the end
 
 ### EXAMPLE 3
 ```
 Invoke-DsMaintenance -ForceUpdate
-Runs all update tasks with -Force applied to module updates
 ```
+
+Runs all update tasks with -Force applied to module updates
 
 ## PARAMETERS
 
@@ -66,7 +69,7 @@ Initiates a restart upon completion
 ```yaml
 Type: SwitchParameter
 Parameter Sets: (All)
-Aliases:
+Aliases: Reboot
 
 Required: False
 Position: Named

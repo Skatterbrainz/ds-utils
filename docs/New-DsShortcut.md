@@ -36,7 +36,7 @@ Name of the shortcut file (base name)
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases:
+Aliases: ShortcutName
 
 Required: True
 Position: 1
@@ -51,7 +51,7 @@ Path to target of the shortcut
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases:
+Aliases: Target
 
 Required: True
 Position: 2
@@ -66,7 +66,7 @@ Working directory path when launching the TargetFile
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases:
+Aliases: WorkingPath
 
 Required: False
 Position: 3
@@ -81,7 +81,7 @@ Arguments to pass to the TargetFile when launched
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases:
+Aliases: Args
 
 Required: False
 Position: 4
@@ -128,7 +128,7 @@ Path to icon file, or path and index of embedded icon
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases:
+Aliases: Icon
 
 Required: False
 Position: 7

@@ -13,7 +13,7 @@ Removes AppxPackages for current user only
 ## SYNTAX
 
 ```
-Remove-DsAppxPackages [[-PackageNames] <String[]>] [<CommonParameters>]
+Remove-DsAppxPackages [[-Name] <String[]>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -23,18 +23,18 @@ Removes AppxPackages for current user only
 
 ### EXAMPLE 1
 ```
-Remove-DsAppxPackages -Packages ('xbox','zune')
+Remove-DsAppxPackages -Name ('xbox','zune')
 ```
 
 ## PARAMETERS
 
-### -PackageNames
-Array of Appx Package names
+### -Name
+Name of Appx Package, or multiple names
 
 ```yaml
 Type: String[]
 Parameter Sets: (All)
-Aliases:
+Aliases: Package, PackageName
 
 Required: False
 Position: 1

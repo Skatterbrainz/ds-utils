@@ -13,7 +13,7 @@ Pin Shortcut to Taskbar
 ## SYNTAX
 
 ```
-Add-DsTaskbarShortcut [-Target] <String> [<CommonParameters>]
+Add-DsTaskbarShortcut [-Path] <String> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -28,13 +28,14 @@ Add-DsTaskbarShortcut -Target "c:\windows\notepad.exe"
 
 ## PARAMETERS
 
-### -Target
-Path and name of item to target shortcut
+### -Path
+Path and name of item to target shortcut.
+Alias: Target, FilePath
 
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases:
+Aliases: Target, FilePath
 
 Required: True
 Position: 1

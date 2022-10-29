@@ -13,7 +13,7 @@ Set Active Power Plan
 ## SYNTAX
 
 ```
-Set-DsPowerPlan [-PlanName] <String> [[-FileName] <String>] [<CommonParameters>]
+Set-DsPowerPlan [-Name] <String> [[-FileName] <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -23,25 +23,23 @@ Set Active Power Plan from a list of standard names
 
 ### EXAMPLE 1
 ```
-Set-DsPowerPlan -PlanName "Performance"
+Set-DsPowerPlan -Name "Performance"
 ```
 
 ### EXAMPLE 2
 ```
-Set-DsPowerPlan -PlanName "Custom" -FileName "c:\customplan.pow"
+Set-DsPowerPlan -Name "Custom" -FileName "c:\customplan.pow"
 ```
 
 ## PARAMETERS
 
-### -PlanName
-Name of power plan to set active. 
- 
-Balanced, Performance, HighPerformance, PowerSaver, EnergyStar, Custom
+### -Name
+Power scheme name
 
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases:
+Aliases: PlanName, Plan
 
 Required: True
 Position: 1

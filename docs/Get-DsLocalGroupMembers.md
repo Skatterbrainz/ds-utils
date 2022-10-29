@@ -53,7 +53,7 @@ Default = 'Administrators'
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases:
+Aliases: Group
 
 Required: False
 Position: 2

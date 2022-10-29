@@ -1,45 +1,43 @@
 ---
 external help file: ds-utils-help.xml
 Module Name: ds-utils
-online version: https://github.com/Skatterbrainz/ds-utils/blob/master/docs/New-DsShortcut.md
+online version: https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Open-DsFileProperties.md
 schema: 2.0.0
 ---
 
 # Open-DsFileProperties
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Open-DsFileProperties
 
 ## SYNTAX
 
 ```
-Open-DsFileProperties [-FilePath] <String> [<CommonParameters>]
+Open-DsFileProperties [-Path] <String> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+Display Windows file properties
 
 ## EXAMPLES
 
-### Example 1
-```powershell
-PS C:\> {{ Add example code here }}
+### EXAMPLE 1
 ```
-
-{{ Add example description here }}
+Open-DsFileProperties -Path "c:\temp\myfile.ps1"
+```
 
 ## PARAMETERS
 
-### -FilePath
-{{ Fill FilePath Description }}
+### -Path
+File path
 
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases:
+Aliases: FilePath
 
 Required: True
-Position: 0
+Position: 1
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -50,11 +48,11 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
-
 ## OUTPUTS
 
-### System.Object
 ## NOTES
 
 ## RELATED LINKS
+
+[https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Open-DsFileProperties.md](https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Open-DsFileProperties.md)
+

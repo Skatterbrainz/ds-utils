@@ -13,8 +13,8 @@ Get-DsRegistryValue
 ## SYNTAX
 
 ```
-Get-DsRegistryValue [-KeyPath] <String> [-ValueName] <String> [[-ComputerName] <String>]
- [[-InputFile] <String>] [[-OutputFile] <String>] [-ADGridSelect] [<CommonParameters>]
+Get-DsRegistryValue [-Path] <String> [-Name] <String> [[-ComputerName] <String>] [[-InputFile] <String>]
+ [-ADGridSelect] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -25,42 +25,44 @@ Export remote registry values
 ### EXAMPLE 1
 ```
 $key = "HKLM:SYSTEM\CurrentControlSet\Control\SystemInformation"
+```
+
 $val = "BIOSVersion"
 Get-DsRegistryValue -KeyPath $key -ValueName $val -ADGridSelect
-```
 
 ### EXAMPLE 2
 ```
 $key = "HKLM:SYSTEM\CurrentControlSet\Control\SystemInformation"
+```
+
 $val = "BIOSVersion"
 Get-DsRegistryValue -KeyPath $key -ValueName $val -InputFile "c:\temp\computers.txt"
-```
 
 ### EXAMPLE 3
 ```
 $key = "HKLM:SYSTEM\CurrentControlSet\Control\SystemInformation"
+```
+
 $val = "BIOSVersion"
 Get-DsRegistryValue -KeyPath $key -ValueName $val -ComputerName "DC01,DC02,DC03"
-```
 
 ### EXAMPLE 4
 ```
 $key = "HKLM:SOFTWARE\Policies\Microsoft\Windows NT\Printers\PointAndPrint"
+```
+
 $val = "NoWarningNoElevationOnInstall"
 Get-DsRegistryValue -KeyPath $key -ValueName -InputFile "c:\temp\computers.txt"
-```
 
 ## PARAMETERS
 
-### -KeyPath
-Required.
-Registry path in PSProvider format (e.g.
-HKLM:SOFTWARE, not HKEY_LOCAL_MACHINE\SOFTWARE)
+### -Path
+{{ Fill Path Description }}
 
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases:
+Aliases: Key, KeyPath
 
 Required: True
 Position: 1
@@ -69,14 +71,13 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -ValueName
-Required.
-Name of Registry value
+### -Name
+{{ Fill Name Description }}
 
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases:
+Aliases: ValueName, Value
 
 Required: True
 Position: 2
@@ -92,7 +93,7 @@ Names of one or more computers (comma-delimited)
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases:
+Aliases: Computer
 
 Required: False
 Position: 3
@@ -112,22 +113,6 @@ Aliases:
 
 Required: False
 Position: 4
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -OutputFile
-Optional.
-Path\Name of CSV output file
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 5
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -157,7 +142,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## OUTPUTS
 
 ## NOTES
-1.0.0 - 2022-08-04 - David Stein / https://github.com/Skatterbrainz
 
 ## RELATED LINKS
 

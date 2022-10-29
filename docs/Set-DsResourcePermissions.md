@@ -13,7 +13,7 @@ Set permissions on file or registry key
 ## SYNTAX
 
 ```
-Set-DsResourcePermissions [[-RegKey] <String>] [[-FilePath] <String>] [<CommonParameters>]
+Set-DsResourcePermissions [[-Key] <String>] [[-Path] <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -29,14 +29,13 @@ Set-DsResourcePermissions -RegKey "HKLM:\SOFTWARE\ToiletBrain\CrappyDoucheware" 
 
 ## PARAMETERS
 
-### -RegKey
-Registry key path.
-Example HKLM:\SOFTWARE\Contoso\AppName
+### -Key
+{{ Fill Key Description }}
 
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases:
+Aliases: RegKey
 
 Required: False
 Position: 1
@@ -45,14 +44,13 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -FilePath
-Folder or File path.
-Example "c:\toiletflush\crapware"
+### -Path
+{{ Fill Path Description }}
 
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases:
+Aliases: FilePath
 
 Required: False
 Position: 2

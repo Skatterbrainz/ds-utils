@@ -8,7 +8,7 @@ schema: 2.0.0
 # Set-DsWindowsTelemetry
 
 ## SYNOPSIS
-Disable Windows 10 Telemetry Collection and Upload
+Set-DsWindowsTelemetry
 
 ## SYNTAX
 
