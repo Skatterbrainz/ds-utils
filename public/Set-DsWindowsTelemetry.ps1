@@ -2,7 +2,7 @@
 function Set-DsWindowsTelemetry {
 	<#
 	.SYNOPSIS
-		Disable Windows 10 Telemetry Collection and Upload
+		Set-DsWindowsTelemetry
 	.DESCRIPTION
 		Disable Windows 10 Telemetry Collection and Upload
 		Disable Connected User Experiences service, and WAP Push service

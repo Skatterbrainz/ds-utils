@@ -32,8 +32,8 @@ function Invoke-DsMaintenance {
 	[OutputType()]
 	param (
 		[parameter(Position=0)] [ValidateSet('All','Modules','Windows','Packages')] [string] $Update = 'All',
-		[parameter()] [switch] $ForceReboot,
-		[parameter()] [switch] $ForceUpdate
+		[parameter()][alias('Reboot')][switch] $ForceReboot,
+		[parameter()][switch] $ForceUpdate
 	)
 	try {
 		if ($Update -in ('All','Modules')) {

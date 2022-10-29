@@ -1,12 +1,24 @@
 function Open-DsFileProperties {
+	<#
+	.SYNOPSIS
+		Open-DsFileProperties
+	.DESCRIPTION
+		Display Windows file properties
+	.PARAMETER Path
+		File path
+	.EXAMPLE
+		Open-DsFileProperties -Path "c:\temp\myfile.ps1"
+	.LINK
+		https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Open-DsFileProperties.md
+	#>
 	[CmdletBinding()]
 	param (
-		[parameter(Mandatory=$True)][string]$FilePath
+		[parameter(Mandatory=$True)][alias('FilePath')][string]$Path
 	)
 
 	try {
-		if (!(Test-Path $FilePath)) { throw "File not found: $FilePath" }
-		$fileobject = Get-Item $FilePath
+		if (!(Test-Path $Path)) { throw "File not found: $Path" }
+		$fileobject = Get-Item $Path
 		$fpath = $fileobject.Directory
 		$fname = $fileobject.Name
 		$shell = New-Object -ComObject Shell.Application
@@ -15,6 +27,6 @@ function Open-DsFileProperties {
 		$file.InvokeVerb("Properties")
 	}
 	catch {
-		Write-Error $_.Exception.Message 
+		Write-Error $_.Exception.Message
 	}
 }

@@ -5,14 +5,10 @@ function Install-Chocolatey {
 		Install Chocolatey and List of Packages
 	.DESCRIPTION
 		Install Chocolatey and List of Packages
-	.PARAMETER Packages
-		Name(s) of Chocolatey packages
-		Default = ('dotnet3.5','7zip','notepadplusplus','adobereader','googlechrome')
 	.EXAMPLE
 		Install-Chocolatey
-		Installs the default list of packages
 	.LINK
-		https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Install-DsPackages.md
+		https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Install-Chocolatey.md
 	#>
 	[CmdletBinding()]
 	[OutputType()]

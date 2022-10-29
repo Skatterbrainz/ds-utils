@@ -18,14 +18,14 @@ function Set-DsResourcePermissions {
 	[CmdletBinding()]
 	[OutputType()]
 	param (
-		[parameter()][string] $RegKey = "HKLM:\SOFTWARE\ToiletBrain\CrappyDoucheware",
-		[parameter()][string] $FilePath = 'C:\Program Files (x86)\ToiletBrain\Crappy Doucheware'
+		[parameter()][alias('RegKey')][string] $Key = "HKLM:\SOFTWARE\ToiletBrain\CrappyDoucheware",
+		[parameter()][alias('FilePath')][string] $Path = 'C:\Program Files (x86)\ToiletBrain\Crappy Doucheware'
 	)
-	if (![string]::IsNullOrEmpty($RegKey)) {
-		if (Test-Path $RegKey) {
-			Write-DsLog -Message "Applying permissions to registry: $RegKey"
+	if (![string]::IsNullOrEmpty($Key)) {
+		if (Test-Path $Key) {
+			Write-DsLog -Message "Applying permissions to registry: $Key"
 			try {
-				Grant-CPermission -Path $regkey -Identity "Users" -Permission ReadKey,WriteKey,SetValue,EnumerateSubKeys,QueryValues
+				Grant-CPermission -Path $Key -Identity "Users" -Permission ReadKey,WriteKey,SetValue,EnumerateSubKeys,QueryValues
 				Write-DsLog -Message "Permissions have been applied successfully"
 			}
 			catch {
@@ -33,11 +33,11 @@ function Set-DsResourcePermissions {
 			}
 		}
 	}
-	if (![string]::IsNullOrEmpty($FilePath)) {
-		if (Test-Path $FilePath) {
-			Write-DsLog -Message "applying permissions to filepath: $FilePath"
+	if (![string]::IsNullOrEmpty($Path)) {
+		if (Test-Path $Path) {
+			Write-DsLog -Message "applying permissions to filepath: $Path"
 			try {
-				Grant-CPermission -Path $filepath -Identity "Users" -Permission Modify
+				Grant-CPermission -Path $Path -Identity "Users" -Permission Modify
 				Write-DsLog -Message "Permissions have been applied successfully"
 			}
 			catch {

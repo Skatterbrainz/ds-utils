@@ -2,9 +2,9 @@
 function Set-DsWin10StartMenu {
 	<#
 	.SYNOPSIS
-		Customize Start Menu and TaskBar
+		Set-DsWin10StartMenu
 	.DESCRIPTION
-		(same)
+		Customize Start Menu and TaskBar
 	.PARAMETER FeatureName
 		Name of feature to configure or disable
 	.NOTES

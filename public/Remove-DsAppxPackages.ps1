@@ -4,10 +4,10 @@ function Remove-DsAppxPackages {
 		Removes AppxPackages for current user only
 	.DESCRIPTION
 		Removes AppxPackages for current user only
-	.PARAMETER PackageName
+	.PARAMETER Name
 		Name of Appx Package, or multiple names
 	.EXAMPLE
-		Remove-DsAppxPackages -PackageName ('xbox','zune')
+		Remove-DsAppxPackages -Name ('xbox','zune')
 	.LINK
 		https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Remove-DsAppxPackages.md
 	#>
@@ -16,15 +16,15 @@ function Remove-DsAppxPackages {
 	param (
 		[parameter()]
 		[ValidateNotNullOrEmpty()]
-		[alias('Name','Package')][string[]] $PackageName = ('xbox','skype','zune','officehub','solitaire')
+		[alias('Package','PackageName')][string[]] $Name = ('xbox','skype','zune','officehub','solitaire')
 	)
 	Write-Host "removing windows store apps for current user" -ForegroundColor cyan
 	# use: (Get-AppxPackage).Name to display package names
-	foreach ($pkg in $PackageNames) {
+	foreach ($pkg in $Name) {
 		try {
 			Write-DsLog -Message "Removing appx package: $pkg"
 			Get-AppxPackage |
-				Where-Object {$_.Name -match $pkg} | 
+				Where-Object {$_.Name -match $pkg} |
 					Remove-AppxPackage -ErrorAction Stop
 		}
 		catch {

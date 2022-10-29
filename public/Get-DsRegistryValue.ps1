@@ -1,38 +1,38 @@
 function Get-DsRegistryValue {
 	<#
-.SYNOPSIS
-    Get-DsRegistryValue
-.DESCRIPTION
-    Export remote registry values
-.PARAMETER KeyPath
-    Required. Registry path in PSProvider format (e.g. HKLM:SOFTWARE, not HKEY_LOCAL_MACHINE\SOFTWARE)
-.PARAMETER ValueName
-    Required. Name of Registry value
-.PARAMETER ComputerName
-    Optional. Names of one or more computers (comma-delimited)
-.PARAMETER InputFile
-    Optional. Path\Name of file containing computer names to query
-.PARAMETER ADGridSelect
-    Optional. Prompt user to select computers read in from AD using a gridview listmenu
-.EXAMPLE
-    $key = "HKLM:SYSTEM\CurrentControlSet\Control\SystemInformation"
-    $val = "BIOSVersion"
-    Get-DsRegistryValue -KeyPath $key -ValueName $val -ADGridSelect
-.EXAMPLE
-    $key = "HKLM:SYSTEM\CurrentControlSet\Control\SystemInformation"
-    $val = "BIOSVersion"
-    Get-DsRegistryValue -KeyPath $key -ValueName $val -InputFile "c:\temp\computers.txt"
-.EXAMPLE
-    $key = "HKLM:SYSTEM\CurrentControlSet\Control\SystemInformation"
-    $val = "BIOSVersion"
-    Get-DsRegistryValue -KeyPath $key -ValueName $val -ComputerName "DC01,DC02,DC03"
-.EXAMPLE
-    $key = "HKLM:SOFTWARE\Policies\Microsoft\Windows NT\Printers\PointAndPrint"
-    $val = "NoWarningNoElevationOnInstall"
-    Get-DsRegistryValue -KeyPath $key -ValueName -InputFile "c:\temp\computers.txt"
-.LINK
-	https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-DsRegistryValue.md
-#>
+	.SYNOPSIS
+		Get-DsRegistryValue
+	.DESCRIPTION
+		Export remote registry values
+	.PARAMETER KeyPath
+		Required. Registry path in PSProvider format (e.g. HKLM:SOFTWARE, not HKEY_LOCAL_MACHINE\SOFTWARE)
+	.PARAMETER ValueName
+		Required. Name of Registry value
+	.PARAMETER ComputerName
+		Optional. Names of one or more computers (comma-delimited)
+	.PARAMETER InputFile
+		Optional. Path\Name of file containing computer names to query
+	.PARAMETER ADGridSelect
+		Optional. Prompt user to select computers read in from AD using a gridview listmenu
+	.EXAMPLE
+		$key = "HKLM:SYSTEM\CurrentControlSet\Control\SystemInformation"
+		$val = "BIOSVersion"
+		Get-DsRegistryValue -KeyPath $key -ValueName $val -ADGridSelect
+	.EXAMPLE
+		$key = "HKLM:SYSTEM\CurrentControlSet\Control\SystemInformation"
+		$val = "BIOSVersion"
+		Get-DsRegistryValue -KeyPath $key -ValueName $val -InputFile "c:\temp\computers.txt"
+	.EXAMPLE
+		$key = "HKLM:SYSTEM\CurrentControlSet\Control\SystemInformation"
+		$val = "BIOSVersion"
+		Get-DsRegistryValue -KeyPath $key -ValueName $val -ComputerName "DC01,DC02,DC03"
+	.EXAMPLE
+		$key = "HKLM:SOFTWARE\Policies\Microsoft\Windows NT\Printers\PointAndPrint"
+		$val = "NoWarningNoElevationOnInstall"
+		Get-DsRegistryValue -KeyPath $key -ValueName -InputFile "c:\temp\computers.txt"
+	.LINK
+		https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-DsRegistryValue.md
+	#>
 	[CmdletBinding()]
 	param (
 		[parameter(Mandatory)][alias('Key','KeyPath')][string][ValidateNotNullOrEmpty()]$Path,

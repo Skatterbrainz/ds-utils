@@ -1,4 +1,4 @@
-function Get-DsLocalGroupMembers {  
+function Get-DsLocalGroupMembers {
 	<#
 	.SYNOPSIS
 		Returns local group members
