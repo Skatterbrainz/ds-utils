@@ -25,20 +25,23 @@ I hate repeating myself
 ### EXAMPLE 1
 ```
 Set-DsComputerName
-(Defaults) results in name like "L-123456789"
 ```
+
+(Defaults) results in name like "L-123456789"
 
 ### EXAMPLE 2
 ```
 Set-DsComputerName -FormCode Suffix -NoHyphen
-Results in name like "123456789L"
 ```
+
+Results in name like "123456789L"
 
 ### EXAMPLE 3
 ```
 Set-DsComputerName -FormCode None -MaxNameLength 8
-Results in name like "12345678"
 ```
+
+Results in name like "12345678"
 
 ## PARAMETERS
 
