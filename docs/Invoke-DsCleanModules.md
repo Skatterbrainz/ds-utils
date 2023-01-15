@@ -24,30 +24,26 @@ Remove older PowerShell module versions
 ### EXAMPLE 1
 ```
 Invoke-DsCleanModules
-```
-
 Analyze all installed modules
+```
 
 ### EXAMPLE 2
 ```
 Invoke-DsCleanModules -Name Mailozaurr
-```
-
 Analyze module Mailozaurr only
+```
 
 ### EXAMPLE 3
 ```
 Invoke-DsCleanModules -Name Mailozaurr -CleanUp
-```
-
 Analyze and clean-up module Mailozaurr only
+```
 
 ### EXAMPLE 4
 ```
 Invoke-DsCleanModules -CleanUp
-```
-
 Analyze and clean-up all installed modules
+```
 
 ## PARAMETERS
 

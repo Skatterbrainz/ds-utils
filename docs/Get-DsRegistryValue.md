@@ -25,34 +25,30 @@ Export remote registry values
 ### EXAMPLE 1
 ```
 $key = "HKLM:SYSTEM\CurrentControlSet\Control\SystemInformation"
-```
-
 $val = "BIOSVersion"
 Get-DsRegistryValue -KeyPath $key -ValueName $val -ADGridSelect
+```
 
 ### EXAMPLE 2
 ```
 $key = "HKLM:SYSTEM\CurrentControlSet\Control\SystemInformation"
-```
-
 $val = "BIOSVersion"
 Get-DsRegistryValue -KeyPath $key -ValueName $val -InputFile "c:\temp\computers.txt"
+```
 
 ### EXAMPLE 3
 ```
 $key = "HKLM:SYSTEM\CurrentControlSet\Control\SystemInformation"
-```
-
 $val = "BIOSVersion"
 Get-DsRegistryValue -KeyPath $key -ValueName $val -ComputerName "DC01,DC02,DC03"
+```
 
 ### EXAMPLE 4
 ```
 $key = "HKLM:SOFTWARE\Policies\Microsoft\Windows NT\Printers\PointAndPrint"
-```
-
 $val = "NoWarningNoElevationOnInstall"
 Get-DsRegistryValue -KeyPath $key -ValueName -InputFile "c:\temp\computers.txt"
+```
 
 ## PARAMETERS
 

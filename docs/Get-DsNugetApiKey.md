@@ -5,28 +5,28 @@ online version: https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-D
 schema: 2.0.0
 ---
 
-# Get-DsPowerPlan
+# Get-DsNugetApiKey
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Get-DsNugetApiKey
 
 ## SYNTAX
 
 ```
-Get-DsPowerPlan [<CommonParameters>]
+Get-DsNugetApiKey [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+Returns API key stored in registry, following use of Set-DsNugetApiKey
+or having set the registry value by some other means
 
 ## EXAMPLES
 
-### Example 1
-```powershell
-PS C:\> {{ Add example code here }}
+### EXAMPLE 1
 ```
-
-{{ Add example description here }}
+$apikey = Get-DsNugetApiKey
+Publish-Module -Name "MyModule" -NuGetApiKey $apikey
+```
 
 ## PARAMETERS
 
@@ -35,11 +35,12 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
-
 ## OUTPUTS
 
-### System.Object
 ## NOTES
+Use Set-DsNugetApiKey to define the registry value first
 
 ## RELATED LINKS
+
+[https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-DsNugetApiKey.md](https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-DsNugetApiKey.md)
+

@@ -1,7 +1,7 @@
 ---
 external help file: ds-utils-help.xml
 Module Name: ds-utils
-online version: https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-DsLocalGroupMembers.md
+online version: https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-DsNugetApiKey.md
 schema: 2.0.0
 ---
 
