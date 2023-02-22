@@ -25,3 +25,4 @@ function Get-DsDefaultBrowser {
 		Write-Error "$($_.Exception.Message)"
 	}
 }
+New-Alias -Name defaultBrowser -value Get-DsDefaultBrowser -Description "Get the current default web browser assignment"

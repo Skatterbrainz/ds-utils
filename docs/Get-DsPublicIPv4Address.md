@@ -1,14 +1,14 @@
 ---
 external help file: ds-utils-help.xml
 Module Name: ds-utils
-online version: https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-DsNugetApiKey.md
+online version: https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-DsPublicIPv4Address.md
 schema: 2.0.0
 ---
 
 # Get-DsPublicIPv4Address
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Get current public IPv4 address
 
 ## SYNTAX
 
@@ -17,26 +17,25 @@ Get-DsPublicIPv4Address
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+Geez.
+Do I really need to elaborate on this one?
 
 ## EXAMPLES
 
-### Example 1
-```powershell
-PS C:\> {{ Add example code here }}
+### EXAMPLE 1
 ```
-
-{{ Add example description here }}
+Get-DsPublicIPv4Address
+```
 
 ## PARAMETERS
 
 ## INPUTS
 
-### None
-
 ## OUTPUTS
 
-### System.Object
 ## NOTES
 
 ## RELATED LINKS
+
+[https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-DsPublicIPv4Address.md](https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-DsPublicIPv4Address.md)
+

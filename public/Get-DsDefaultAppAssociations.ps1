@@ -1,4 +1,24 @@
 function Get-DsDefaultAppAssociations {
+	<#
+	.SYNOPSIS
+		Get Windows default app associations table
+	.DESCRIPTION
+		Returns default app associations for the current user
+	.PARAMETER FilePath
+		Path where export file is saved/maintained.
+		Default is user Documents path, filename is defaultapps.xml
+	.PARAMETER RefreshDays
+		Number of days to reuse export file until forcing a refresh.
+		The default is seven (7) days
+	.PARAMETER Force
+		Force a refresh of the export file
+	.EXAMPLE
+		Get-DsDefaultAppAssociations
+	.EXAMPLE
+		Get-DsDefaultAppAssociations -Force
+	.LINK
+		https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-DsDefaultAppAssociations.md
+	#>
 	[CmdletBinding()]
 	param (
 		[parameter()][string]$FilePath = "$($env:USERPROFILE)\documents\defaultapps.xml",

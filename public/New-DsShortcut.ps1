@@ -95,3 +95,4 @@ function New-DsShortcut {
 		Write-Output $result
 	}
 }
+New-Alias -Name New-Shortcut -value New-DsShortcut -Description "Create a new shortcut"

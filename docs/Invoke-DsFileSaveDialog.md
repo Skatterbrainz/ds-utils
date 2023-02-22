@@ -1,67 +1,67 @@
 ---
 external help file: ds-utils-help.xml
 Module Name: ds-utils
-online version: https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Invoke-DsSed.md
+online version: https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Invoke-DsFileSaveDialog.md
 schema: 2.0.0
 ---
 
-# Invoke-DsSed
+# Invoke-DsFileSaveDialog
 
 ## SYNOPSIS
-Invoke-DsSed
+Display a file Save or SaveAs dialog
 
 ## SYNTAX
 
 ```
-Invoke-DsSed [-FilePath] <String> [-Find] <String> [[-Filter] <String>] [[-ReplaceWith] <String>]
+Invoke-DsFileSaveDialog [[-InitialDirectory] <String>] [[-Filter] <String>] [[-Title] <String>]
  [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Search/Replace matching text pattern within specified files
+Same as the synopsis
 
 ## EXAMPLES
 
 ### EXAMPLE 1
 ```
-Invoke-DsSed -FilePath "c:\mydocs" -Filter "*.txt" -Find "Contoso" -ReplaceWith "Fabrikam"
+$filepath = Invoke-DsFileSaveDialog
 ```
 
 ## PARAMETERS
 
-### -FilePath
-Path where files reside
+### -InitialDirectory
+Default directory location
 
 ```yaml
 Type: String
 Parameter Sets: (All)
 Aliases:
 
-Required: True
+Required: False
 Position: 1
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Find
-Text pattern to search for
+### -Filter
+File type filter.
+Default is "All Files (*.*)|*.*"
 
 ```yaml
 Type: String
 Parameter Sets: (All)
 Aliases:
 
-Required: True
+Required: False
 Position: 2
-Default value: None
+Default value: All Files (*.*)|*.*
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Filter
-File name/extension pattern.
-Default is *.* (all files)
+### -Title
+Dialog caption
 
 ```yaml
 Type: String
@@ -70,22 +70,7 @@ Aliases:
 
 Required: False
 Position: 3
-Default value: *.*
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -ReplaceWith
-Text to replace the matching pattern instances
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 4
-Default value: None
+Default value: Save File
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -101,5 +86,5 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-[https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Invoke-DsSed.md](https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Invoke-DsSed.md)
+[https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Invoke-DsFileSaveDialog.md](https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Invoke-DsFileSaveDialog.md)
 

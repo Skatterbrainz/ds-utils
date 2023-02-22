@@ -1,67 +1,71 @@
 ---
 external help file: ds-utils-help.xml
 Module Name: ds-utils
-online version: https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Invoke-DsSed.md
+online version: https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-DsFileOpenDialog.md
 schema: 2.0.0
 ---
 
-# Invoke-DsSed
+# Get-DsFileOpenDialog
 
 ## SYNOPSIS
-Invoke-DsSed
+Display a file open dialog form
 
 ## SYNTAX
 
 ```
-Invoke-DsSed [-FilePath] <String> [-Find] <String> [[-Filter] <String>] [[-ReplaceWith] <String>]
+Get-DsFileOpenDialog [[-InitialDirectory] <String>] [[-Filter] <String>] [[-Title] <String>] [-MultiSelect]
  [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Search/Replace matching text pattern within specified files
+Display a file open dialog form to select one or more files to return the full names.
 
 ## EXAMPLES
 
 ### EXAMPLE 1
 ```
-Invoke-DsSed -FilePath "c:\mydocs" -Filter "*.txt" -Find "Contoso" -ReplaceWith "Fabrikam"
+$files = Get-DsFileOpenDialog -InitialDirectory "c:\projects" -Filter "Python Files (*.py)|*.py" -Title "Select Files" -MultiSelect
 ```
 
 ## PARAMETERS
 
-### -FilePath
-Path where files reside
+### -InitialDirectory
+Default folder location
 
 ```yaml
 Type: String
 Parameter Sets: (All)
 Aliases:
 
-Required: True
+Required: False
 Position: 1
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Find
-Text pattern to search for
+### -Filter
+Optional.
+File type filter, using paired format as follows:
+Default is "All Files (*.*)|*.*".
+Format is "Text Files (*.txt)|*.txt"
 
 ```yaml
 Type: String
 Parameter Sets: (All)
 Aliases:
 
-Required: True
+Required: False
 Position: 2
-Default value: None
+Default value: All Files (*.*)|*.*
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Filter
-File name/extension pattern.
-Default is *.* (all files)
+### -Title
+Optional.
+Dialog form caption.
+Default is "Select File"
 
 ```yaml
 Type: String
@@ -70,22 +74,24 @@ Aliases:
 
 Required: False
 Position: 3
-Default value: *.*
+Default value: Select File
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -ReplaceWith
-Text to replace the matching pattern instances
+### -MultiSelect
+Optional.
+Allows selecting multiple files.
+Default is single selection only.
 
 ```yaml
-Type: String
+Type: SwitchParameter
 Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 4
-Default value: None
+Position: Named
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -101,5 +107,5 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-[https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Invoke-DsSed.md](https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Invoke-DsSed.md)
+[https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-DsFileOpenDialog.md](https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-DsFileOpenDialog.md)
 

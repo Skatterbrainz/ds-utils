@@ -1,52 +1,55 @@
 ---
 external help file: ds-utils-help.xml
 Module Name: ds-utils
-online version: https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Invoke-DsCleanModules.md
+online version: https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Invoke-DsGrep.md
 schema: 2.0.0
 ---
 
 # Invoke-DsGrep
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Invoke-DsGrep
 
 ## SYNTAX
 
 ```
-Invoke-DsGrep [-Pattern] <String> [[-InputString] <String>] [[-Path] <String>] [<CommonParameters>]
+Invoke-DsGrep [-Pattern] <String> [[-InputString] <String>] [[-Path] <String>] [-Recurse] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+Search text or file content for matching string pattern
 
 ## EXAMPLES
 
-### Example 1
-```powershell
-PS C:\> {{ Add example code here }}
+### EXAMPLE 1
+```
+Invoke-DsGrep -Pattern "Contoso Corp" -InputString "The facility is owned by Contoso Corp, who recently leased it."
 ```
 
-{{ Add example description here }}
+### EXAMPLE 2
+```
+Invoke-DsGrep -Pattern "Contoso Corp" -Path "c:\mydocs" -Recurse
+```
 
 ## PARAMETERS
 
-### -InputString
-{{ Fill InputString Description }}
+### -Pattern
+Text pattern to search for
 
 ```yaml
 Type: String
 Parameter Sets: (All)
 Aliases:
 
-Required: False
+Required: True
 Position: 1
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Path
-{{ Fill Path Description }}
+### -InputString
+String to search for matching Pattern value
 
 ```yaml
 Type: String
@@ -60,17 +63,38 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Pattern
-{{ Fill Pattern Description }}
+### -Path
+Path to search files for matching Pattern value
+If Path is provided, InputString is ignored
 
 ```yaml
 Type: String
 Parameter Sets: (All)
 Aliases:
 
-Required: True
-Position: 0
+Required: False
+Position: 3
 Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Recurse
+Optional.
+Only used with Path parameter.
+Default is to scan files
+in the Path location only, not sub-folders.
+If Recurse is used, scan
+will include sub-folders
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -80,11 +104,11 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
-
 ## OUTPUTS
 
-### System.Object
 ## NOTES
 
 ## RELATED LINKS
+
+[https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Invoke-DsGrep.md](https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Invoke-DsGrep.md)
+

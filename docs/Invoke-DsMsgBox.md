@@ -1,36 +1,38 @@
 ---
 external help file: ds-utils-help.xml
 Module Name: ds-utils
-online version: https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Invoke-DsSed.md
+online version: https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Invoke-DsMsgBox.md
 schema: 2.0.0
 ---
 
-# Invoke-DsSed
+# Invoke-DsMsgBox
 
 ## SYNOPSIS
-Invoke-DsSed
+Display Windows message box
 
 ## SYNTAX
 
 ```
-Invoke-DsSed [-FilePath] <String> [-Find] <String> [[-Filter] <String>] [[-ReplaceWith] <String>]
+Invoke-DsMsgBox [-Message] <String> [-Title] <String> [[-ButtonType] <String>] [[-Icon] <String>]
  [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Search/Replace matching text pattern within specified files
+Display a Windows message box
 
 ## EXAMPLES
 
-### EXAMPLE 1
+### Example 1
+```powershell
+PS C:\> {{ Add example code here }}
 ```
-Invoke-DsSed -FilePath "c:\mydocs" -Filter "*.txt" -Find "Contoso" -ReplaceWith "Fabrikam"
-```
+
+{{ Add example description here }}
 
 ## PARAMETERS
 
-### -FilePath
-Path where files reside
+### -Message
+Text to display in the message box
 
 ```yaml
 Type: String
@@ -44,8 +46,8 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Find
-Text pattern to search for
+### -Title
+Message box caption / title
 
 ```yaml
 Type: String
@@ -59,9 +61,9 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Filter
-File name/extension pattern.
-Default is *.* (all files)
+### -ButtonType
+Ok, OkCancel, YesNo, YesNoCancel.
+Default is Ok
 
 ```yaml
 Type: String
@@ -70,13 +72,14 @@ Aliases:
 
 Required: False
 Position: 3
-Default value: *.*
+Default value: Ok
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -ReplaceWith
-Text to replace the matching pattern instances
+### -Icon
+Error, Exclamation, Information, Question, Warning, None.
+Default is Information
 
 ```yaml
 Type: String
@@ -85,7 +88,7 @@ Aliases:
 
 Required: False
 Position: 4
-Default value: None
+Default value: Information
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -101,5 +104,5 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-[https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Invoke-DsSed.md](https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Invoke-DsSed.md)
+[https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Invoke-DsMsgBox.md](https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Invoke-DsMsgBox.md)
 

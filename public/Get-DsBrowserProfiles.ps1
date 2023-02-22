@@ -51,8 +51,7 @@ function Get-DsBrowserProfile {
 				$profilePath = "$env:APPDATA\Mozilla\Firefox\Profiles"
 				[array]$profileFolders = Get-ChildItem -Path $profilePath -Directory | select-object Name,FullName
 			}
-		} 
-		
+		}
 		if ($app -ne 'Firefox') {
 			foreach ($folder in $profileFolders) {
 				[string]$pref = Join-Path $folder.FullName "Preferences"
@@ -136,3 +135,4 @@ function Get-DsBrowserProfile {
 		}
 	}
 }
+New-Alias -Name browserProfiles -value Get-DsBrowserProfile -Description "Get browser profiles"

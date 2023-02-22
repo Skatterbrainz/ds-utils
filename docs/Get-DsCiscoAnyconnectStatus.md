@@ -1,42 +1,43 @@
 ---
 external help file: ds-utils-help.xml
 Module Name: ds-utils
-online version: https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-DsBrowserProfile.md
+online version: https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-DsCiscoAnyConnectStatus.md
 schema: 2.0.0
 ---
 
 # Get-DsCiscoAnyconnectStatus
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Get current AnyConnect state/status
 
 ## SYNTAX
 
 ```
-Get-DsCiscoAnyconnectStatus
+Get-DsCiscoAnyconnectStatus [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+Gets the current Cisco AnyConnect VPN state
 
 ## EXAMPLES
 
-### Example 1
-```powershell
-PS C:\> {{ Add example code here }}
+### EXAMPLE 1
 ```
-
-{{ Add example description here }}
+Get-DsCiscoAnyConnectStatus
+```
 
 ## PARAMETERS
 
-## INPUTS
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
-### None
+## INPUTS
 
 ## OUTPUTS
 
-### System.Object
 ## NOTES
 
 ## RELATED LINKS
+
+[https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-DsCiscoAnyConnectStatus.md](https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-DsCiscoAnyConnectStatus.md)
+

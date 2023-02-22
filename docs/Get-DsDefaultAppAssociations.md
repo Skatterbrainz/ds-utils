@@ -1,14 +1,14 @@
 ---
 external help file: ds-utils-help.xml
 Module Name: ds-utils
-online version: https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-DsBrowserProfile.md
+online version: https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-DsDefaultAppAssociations.md
 schema: 2.0.0
 ---
 
 # Get-DsDefaultAppAssociations
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Get Windows default app associations table
 
 ## SYNTAX
 
@@ -17,21 +17,25 @@ Get-DsDefaultAppAssociations [[-FilePath] <String>] [[-RefreshDays] <Int32>] [-F
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+Returns default app associations for the current user
 
 ## EXAMPLES
 
-### Example 1
-```powershell
-PS C:\> {{ Add example code here }}
+### EXAMPLE 1
+```
+Get-DsDefaultAppAssociations
 ```
 
-{{ Add example description here }}
+### EXAMPLE 2
+```
+Get-DsDefaultAppAssociations -Force
+```
 
 ## PARAMETERS
 
 ### -FilePath
-{{ Fill FilePath Description }}
+Path where export file is saved/maintained.
+Default is user Documents path, filename is defaultapps.xml
 
 ```yaml
 Type: String
@@ -39,14 +43,30 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 0
-Default value: None
+Position: 1
+Default value: "$($env:USERPROFILE)\documents\defaultapps.xml"
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -RefreshDays
+Number of days to reuse export file until forcing a refresh.
+The default is seven (7) days
+
+```yaml
+Type: Int32
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 2
+Default value: 7
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
 ### -Force
-{{ Fill Force Description }}
+Force a refresh of the export file
 
 ```yaml
 Type: SwitchParameter
@@ -55,22 +75,7 @@ Aliases:
 
 Required: False
 Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -RefreshDays
-{{ Fill RefreshDays Description }}
-
-```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 1
-Default value: None
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -80,11 +85,11 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
-
 ## OUTPUTS
 
-### System.Object
 ## NOTES
 
 ## RELATED LINKS
+
+[https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-DsDefaultAppAssociations.md](https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-DsDefaultAppAssociations.md)
+

@@ -1,4 +1,17 @@
 function Get-DsCiscoAnyconnectStatus {
+		<#
+		.SYNOPSIS
+			Get current AnyConnect state/status
+		.DESCRIPTION
+			Gets the current Cisco AnyConnect VPN state
+		.PARAMETER (none)
+		.EXAMPLE
+			Get-DsCiscoAnyConnectStatus
+		.LINK
+			https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-DsCiscoAnyConnectStatus.md
+		#>
+[CmdletBinding()]
+	param()
 	$VPNExe = "$(${env:ProgramFiles(x86)})\Cisco\Cisco AnyConnect Secure Mobility Client\vpncli.exe"
 	if (Test-Path $VPNExe) {
 		$fileinfo = (Get-Item -Path $VPNExe).VersionInfo | Select-Object -ExpandProperty FileVersion
