@@ -13,8 +13,7 @@ function Get-DocRef {
 		Switch to perform search instead of direct link
 	.EXAMPLE
 		$myVar | Get-DocRef
-		If $myVar is of type System.Array, opens 
-	.EXAMPLE
+		If $myVar is of type System.Array, opens
 	.LINK
 		https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-DocRef.md
 	#>

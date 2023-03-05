@@ -1,46 +1,44 @@
 ---
 external help file: ds-utils-help.xml
 Module Name: ds-utils
-online version: https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-WindowsTelemetry.md
+online version: https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Remove-AppxPackages.md
 schema: 2.0.0
 ---
 
-# Install-Chocolatey
+# Remove-AppxPackages
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Removes AppxPackages for current user only
 
 ## SYNTAX
 
 ```
-Install-Chocolatey [[-RemotePath] <String>] [<CommonParameters>]
+Remove-AppxPackages [[-Name] <String[]>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+Removes AppxPackages for current user only
 
 ## EXAMPLES
 
-### Example 1
-```powershell
-PS C:\> {{ Add example code here }}
+### EXAMPLE 1
 ```
-
-{{ Add example description here }}
+Remove-AppxPackages -Name ('xbox','zune')
+```
 
 ## PARAMETERS
 
-### -RemotePath
-{{ Fill RemotePath Description }}
+### -Name
+Name of Appx Package, or multiple names
 
 ```yaml
-Type: String
+Type: String[]
 Parameter Sets: (All)
-Aliases:
+Aliases: Package, PackageName
 
 Required: False
-Position: 0
-Default value: None
+Position: 1
+Default value: ('xbox','skype','zune','officehub','solitaire')
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -50,11 +48,11 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
-
 ## OUTPUTS
 
-### System.Object
 ## NOTES
 
 ## RELATED LINKS
+
+[https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Remove-AppxPackages.md](https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Remove-AppxPackages.md)
+

@@ -1,45 +1,44 @@
 ---
 external help file: ds-utils-help.xml
 Module Name: ds-utils
-online version: https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-WindowsTelemetry.md
+online version: https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Set-NugetApiKey.md
 schema: 2.0.0
 ---
 
-# Install-Chocolatey
+# Set-NugetApiKey
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Set-DsNugetApiKey
 
 ## SYNTAX
 
 ```
-Install-Chocolatey [[-RemotePath] <String>] [<CommonParameters>]
+Set-NugetApiKey [-ApiKey] <String> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+Stores NuGet API key in registry
 
 ## EXAMPLES
 
-### Example 1
-```powershell
-PS C:\> {{ Add example code here }}
+### EXAMPLE 1
 ```
-
-{{ Add example description here }}
+Set-NugetApiKey -ApiKey '01234567-abcd-4567-defg-987654321aaa'
+```
 
 ## PARAMETERS
 
-### -RemotePath
-{{ Fill RemotePath Description }}
+### -ApiKey
+NuGet API key (GUID) from repository (e.g.
+PowerShell Gallery)
 
 ```yaml
 Type: String
 Parameter Sets: (All)
 Aliases:
 
-Required: False
-Position: 0
+Required: True
+Position: 1
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -50,11 +49,11 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
-
 ## OUTPUTS
 
-### System.Object
 ## NOTES
 
 ## RELATED LINKS
+
+[https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Set-NugetApiKey.md](https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Set-NugetApiKey.md)
+

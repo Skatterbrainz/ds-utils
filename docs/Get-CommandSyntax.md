@@ -1,40 +1,40 @@
 ---
 external help file: ds-utils-help.xml
 Module Name: ds-utils
-online version: https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-DocRef.md
+online version: https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-Syntax.md
 schema: 2.0.0
 ---
 
-# Get-DocRef
+# Get-CommandSyntax
 
 ## SYNOPSIS
-Opens link to Microsoft Doc for Variable Data Type
+Show formatted basic syntax for a function or cmdlet
 
 ## SYNTAX
 
 ```
-Get-DocRef [-VariableRef] <Object> [-Search] [<CommonParameters>]
+Get-CommandSyntax [-Command] <Object> [-Normalize] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Opens a link in a web browser to the Microsoft Doc page for the
-data type associated with a PowerShell variable.
-The Search parameter
-searches Google for the variable type, for situations when there is no
-direct MS Doc page available.
+Show formatted basic syntax for a function or cmdlet
 
 ## EXAMPLES
 
 ### EXAMPLE 1
 ```
-$myVar | Get-DocRef
-If $myVar is of type System.Array, opens
+Get-CommandSyntax Get-DocRef
+```
+
+### EXAMPLE 2
+```
+Get-CommandSyntax Get-DocRef -Normalize
 ```
 
 ## PARAMETERS
 
-### -VariableRef
-PowerShell variable (object)
+### -Command
+Name of command / cmdlet / function
 
 ```yaml
 Type: Object
@@ -44,12 +44,13 @@ Aliases:
 Required: True
 Position: 1
 Default value: None
-Accept pipeline input: True (ByValue)
+Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Search
-Switch to perform search instead of direct link
+### -Normalize
+Displays output on 1-line.
+Default is stacked view
 
 ```yaml
 Type: SwitchParameter
@@ -71,8 +72,9 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## OUTPUTS
 
 ## NOTES
+Borrowed entirely from \[Brett Miller\] with very minor changes: https://github.com/brettmillerb/Toolbox
 
 ## RELATED LINKS
 
-[https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-DocRef.md](https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-DocRef.md)
+[https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-Syntax.md](https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-Syntax.md)
 

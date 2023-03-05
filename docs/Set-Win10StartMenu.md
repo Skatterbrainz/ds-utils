@@ -1,23 +1,23 @@
 ---
 external help file: ds-utils-help.xml
 Module Name: ds-utils
-online version: https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-WindowsTelemetry.md
+online version: https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Set-DsWin10StartMenu.md
 schema: 2.0.0
 ---
 
-# Install-Chocolatey
+# Set-Win10StartMenu
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Set-DsWin10StartMenu
 
 ## SYNTAX
 
 ```
-Install-Chocolatey [[-RemotePath] <String>] [<CommonParameters>]
+Set-Win10StartMenu [-FeatureName] <String> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+Customize Start Menu and TaskBar
 
 ## EXAMPLES
 
@@ -30,16 +30,16 @@ PS C:\> {{ Add example code here }}
 
 ## PARAMETERS
 
-### -RemotePath
-{{ Fill RemotePath Description }}
+### -FeatureName
+Name of feature to configure or disable
 
 ```yaml
 Type: String
 Parameter Sets: (All)
 Aliases:
 
-Required: False
-Position: 0
+Required: True
+Position: 1
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -50,11 +50,12 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
-
 ## OUTPUTS
 
-### System.Object
 ## NOTES
+https://www.howto-connect.com/registry-hacks-for-start-menu-and-taskbar-in-windows-10/
 
 ## RELATED LINKS
+
+[https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Set-DsWin10StartMenu.md](https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Set-DsWin10StartMenu.md)
+

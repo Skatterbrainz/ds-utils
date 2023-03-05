@@ -1,45 +1,44 @@
 ---
 external help file: ds-utils-help.xml
 Module Name: ds-utils
-online version: https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-WindowsTelemetry.md
+online version: https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Add-TaskbarShortcut.md
 schema: 2.0.0
 ---
 
-# Install-Chocolatey
+# Add-TaskbarShortcut
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Pin Shortcut to Taskbar
 
 ## SYNTAX
 
 ```
-Install-Chocolatey [[-RemotePath] <String>] [<CommonParameters>]
+Add-TaskbarShortcut [-Path] <String> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+Pin Shortcut to Taskbar
 
 ## EXAMPLES
 
-### Example 1
-```powershell
-PS C:\> {{ Add example code here }}
+### EXAMPLE 1
 ```
-
-{{ Add example description here }}
+Add-TaskbarShortcut -Target "c:\windows\notepad.exe"
+```
 
 ## PARAMETERS
 
-### -RemotePath
-{{ Fill RemotePath Description }}
+### -Path
+Path and name of item to target shortcut.
+Alias: Target, FilePath
 
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases:
+Aliases: Target, FilePath
 
-Required: False
-Position: 0
+Required: True
+Position: 1
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -50,11 +49,11 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
-
 ## OUTPUTS
 
-### System.Object
 ## NOTES
 
 ## RELATED LINKS
+
+[https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Add-TaskbarShortcut.md](https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Add-TaskbarShortcut.md)
+

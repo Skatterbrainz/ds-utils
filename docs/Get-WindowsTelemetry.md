@@ -5,56 +5,39 @@ online version: https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-W
 schema: 2.0.0
 ---
 
-# Install-Chocolatey
+# Get-WindowsTelemetry
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Get-DsWindowsTelemetry
 
 ## SYNTAX
 
 ```
-Install-Chocolatey [[-RemotePath] <String>] [<CommonParameters>]
+Get-WindowsTelemetry [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+Returns current Windows telemetry state information
 
 ## EXAMPLES
 
-### Example 1
-```powershell
-PS C:\> {{ Add example code here }}
+### EXAMPLE 1
 ```
-
-{{ Add example description here }}
+Get-WindowsTelemetry
+```
 
 ## PARAMETERS
-
-### -RemotePath
-{{ Fill RemotePath Description }}
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 0
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
 
 ### CommonParameters
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
-### None
-
 ## OUTPUTS
 
-### System.Object
 ## NOTES
 
 ## RELATED LINKS
+
+[https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-WindowsTelemetry.md](https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-WindowsTelemetry.md)
+

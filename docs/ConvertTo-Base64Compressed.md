@@ -1,19 +1,19 @@
 ---
 external help file: ds-utils-help.xml
 Module Name: ds-utils
-online version: https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-WindowsTelemetry.md
+online version: https://github.com/Skatterbrainz/ds-utils/blob/master/docs/ConvertTo-Base64Compressed.md
 schema: 2.0.0
 ---
 
-# Install-Chocolatey
+# ConvertTo-Base64Compressed
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Convert string to Base64 compressed
 
 ## SYNTAX
 
 ```
-Install-Chocolatey [[-RemotePath] <String>] [<CommonParameters>]
+ConvertTo-Base64Compressed [-string] <Object> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -21,27 +21,27 @@ Install-Chocolatey [[-RemotePath] <String>] [<CommonParameters>]
 
 ## EXAMPLES
 
-### Example 1
-```powershell
-PS C:\> {{ Add example code here }}
+### EXAMPLE 1
 ```
-
-{{ Add example description here }}
+"this is a test string" | ConvertTo-Base64Compressed
+returns "H4sIAAAAAAAEACvJyCxWAKJEhZLU4hKF4pKizLx0ALXWhvwVAAAA"
+```
 
 ## PARAMETERS
 
-### -RemotePath
-{{ Fill RemotePath Description }}
+### -string
+Required.
+Text string to convert.
 
 ```yaml
-Type: String
+Type: Object
 Parameter Sets: (All)
 Aliases:
 
-Required: False
-Position: 0
+Required: True
+Position: 1
 Default value: None
-Accept pipeline input: False
+Accept pipeline input: True (ByValue)
 Accept wildcard characters: False
 ```
 
@@ -50,11 +50,11 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
-
 ## OUTPUTS
 
-### System.Object
 ## NOTES
 
 ## RELATED LINKS
+
+[https://github.com/Skatterbrainz/ds-utils/blob/master/docs/ConvertTo-Base64Compressed.md](https://github.com/Skatterbrainz/ds-utils/blob/master/docs/ConvertTo-Base64Compressed.md)
+

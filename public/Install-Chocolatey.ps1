@@ -5,6 +5,8 @@ function Install-Chocolatey {
 		Install Chocolatey and List of Packages
 	.DESCRIPTION
 		Install Chocolatey and List of Packages
+	.PARAMETER RemotePath
+		URL to install script
 	.EXAMPLE
 		Install-Chocolatey
 	.LINK
@@ -12,19 +14,21 @@ function Install-Chocolatey {
 	#>
 	[CmdletBinding()]
 	[OutputType()]
-	param ()
+	param (
+		[parameter()][string]$RemotePath = 'https://chocolatey.org/install.ps1'
+	)
 	try {
 		if ([string]::IsNullOrWhiteSpace($env:ChocolateyInstall)) {
 			Write-Host "installing chocolatey" -ForegroundColor cyan
-			Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-			Write-DsLog -Message "chocolatey has landed!"
+			Invoke-Expression ((New-Object System.Net.WebClient).DownloadString($RemotePath))
+			Write-Host "Chocolatey has landed!"
 		} else {
 			Write-Host "Chocolatey is already installed"
 		}
 		Write-Output 0
 	}
 	catch {
-		Write-DsLog -Message $Error[0].Exception.Message -Category Error
+		Write-Error $_.Exception.Message
 		Write-Output -1
 	}
 }

@@ -1,55 +1,50 @@
 ---
 external help file: ds-utils-help.xml
 Module Name: ds-utils
-online version: https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-DocRef.md
+online version: https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Show-FileExtensions.md
 schema: 2.0.0
 ---
 
-# Get-DocRef
+# Show-FileExtensions
 
 ## SYNOPSIS
-Opens link to Microsoft Doc for Variable Data Type
+Enable display of file extensions in Windows Explorer
 
 ## SYNTAX
 
 ```
-Get-DocRef [-VariableRef] <Object> [-Search] [<CommonParameters>]
+Show-FileExtensions [-Enable] <Boolean> [-RestartShell] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Opens a link in a web browser to the Microsoft Doc page for the
-data type associated with a PowerShell variable.
-The Search parameter
-searches Google for the variable type, for situations when there is no
-direct MS Doc page available.
+Enable display of file extensions in Windows Explorer
 
 ## EXAMPLES
 
 ### EXAMPLE 1
 ```
-$myVar | Get-DocRef
-If $myVar is of type System.Array, opens
+Show-FileExtensions -Enable $True -RestartShell
 ```
 
 ## PARAMETERS
 
-### -VariableRef
-PowerShell variable (object)
+### -Enable
+Toggle display on (Enable $True) or off (Enable $False)
 
 ```yaml
-Type: Object
+Type: Boolean
 Parameter Sets: (All)
 Aliases:
 
 Required: True
 Position: 1
-Default value: None
-Accept pipeline input: True (ByValue)
+Default value: False
+Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Search
-Switch to perform search instead of direct link
+### -RestartShell
+Restart the Explorer shell to apply changes
 
 ```yaml
 Type: SwitchParameter
@@ -74,5 +69,5 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-[https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-DocRef.md](https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-DocRef.md)
+[https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Show-FileExtensions.md](https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Show-FileExtensions.md)
 
