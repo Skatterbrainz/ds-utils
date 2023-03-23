@@ -21,17 +21,16 @@ function Get-ADLockedUsers {
 		[parameter()][string]$LogName = "Security",
 		[parameter()][int][ValidateRange(1,30)]$DaysBack = 3
 	)
+	if (!(Get-Module ActiveDirectory -ListAvailable)) {
+		Write-Warning "Required PowerShell module not installed: ActiveDirectory"
+		break
+	}
 	if ([string]::IsNullOrWhiteSpace($LogName)) {
 		Write-Warning "Parameter cannot be blank: LogName"
 		break
 	}
 	if ($null -eq $EventID) {
 		Write-Warning "Parameter cannot be blank: EventID"
-		break
-	}
-
-	if (!(Get-Module ActiveDirectory -ListAvailable)) {
-		Write-Warning "Module not installed: ActiveDirectory"
 		break
 	}
 	$dcs = @(Get-ADDomainController -Filter * | Sort-Object Name | Select-Object -ExpandProperty Name)

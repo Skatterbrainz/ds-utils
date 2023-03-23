@@ -19,6 +19,7 @@ function Set-Win10StartMenu {
 		[ValidateSet('RecentApps','ContextMenu','PeopleIcon')]
 		[string] $FeatureName
 	)
+	Write-Warning "This function has been deprecated and will be removed in a future release."
 	Write-Verbose "setting feature: $FeatureName"
 	try {
 		Write-Verbose "Updating registry key based on feature: $FeatureName"
