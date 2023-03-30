@@ -77,8 +77,8 @@ Accept wildcard characters: False
 ```
 
 ### -Part
-Parent = return the root path portion
-Domain = return the domain suffix portion
+* Parent = return the root path portion
+* Domain = return the domain suffix portion
 
 ```yaml
 Type: String

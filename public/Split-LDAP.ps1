@@ -10,8 +10,8 @@ function Split-LDAP {
 	.PARAMETER Delimiter
 		The character to apply the split upon. The defaul is a comma (,)
 	.PARAMETER Part
-		Parent = return the root path portion
-		Domain = return the domain suffix portion
+		* Parent = return the root path portion
+		* Domain = return the domain suffix portion
 	.EXAMPLE
 		$p1 = "CN=JSmith,CN=Users,DC=east,DC=contoso,DC=local"
 		Split-LDAP $p1
