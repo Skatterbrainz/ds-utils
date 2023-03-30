@@ -14,3 +14,7 @@ Get-Help <function-name> -Examples
 
 Get-Help <function-name> -Online
 ```
+
+## Documentation
+
+Go [here](https://github.com/Skatterbrainz/ds-utils/tree/master/docs)
