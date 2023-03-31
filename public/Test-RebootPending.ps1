@@ -6,7 +6,6 @@ function Test-RebootPending {
 	.EXAMPLE
 		if (Test-DsRebootPending) { ... }
 	.NOTES
-		Internal function
 		Thanks to https://4sysops.com/archives/use-powershell-to-test-if-a-windows-server-is-pending-a-reboot/
 	.OUTPUTS
 		True or False
@@ -37,13 +36,13 @@ function Test-RebootPending {
 	foreach ($test in $pendingRebootTests) {
 		$result = Invoke-Command -ScriptBlock $test.Test
 		if ($test.TestType -eq 'ValueExists' -and $result) {
-			Write-Verbose "$($test.Name) = TRUE"
+			#Write-Verbose "$($test.Name) = TRUE"
 			$result = $true
 		} elseif ($test.TestType -eq 'NonNullValue' -and $result -and $result.($test.Name)) {
-			Write-Verbose "$($test.Name) = TRUE"
+			#Write-Verbose "$($test.Name) = TRUE"
 			$result = $true
 		} else {
-			Write-Verbose "$($test.Name) = FALSE"
+			#Write-Verbose "$($test.Name) = FALSE"
 		}
 	}
 	$result

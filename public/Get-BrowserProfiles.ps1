@@ -1,25 +1,24 @@
 function Get-BrowserProfile {
 	<#
 	.SYNOPSIS
-	Query Browser Profiles
+		Query Browser Profiles
 	.DESCRIPTION
-	Query Browser profiles, returning ID, Name and UserName. For current user or all users
+		Query Browser profiles, returning ID, Name and UserName. For current user or all users
 	.PARAMETER Browser
-	Optional. Browser app to target for query (if installed)
-	* Default = Get default browser from registry query
-	* Chrome
-	* Edge
-	* Brave
-	* Firefox
+		Optional. Browser app to target for query (if installed)
+		* Default = Get default browser from registry query
+		* Chrome
+		* Edge
+		* Brave
+		* Firefox
 	.PARAMETER AllUsers
-	Query all users on the computer
+		Query all users on the computer
 	.EXAMPLE
-	Get-BrowserProfile
+		Get-BrowserProfile
 	.EXAMPLE
-	Get-BrowserProfile -Browser Edge
+		Get-BrowserProfile -Browser Edge
 	.EXAMPLE
-	Get-BrowserProfile -Browser Chrome -AllUsers
-	.NOTES
+		Get-BrowserProfile -Browser Chrome -AllUsers
 	.LINK
 		https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-BrowserProfile.md
 	#>

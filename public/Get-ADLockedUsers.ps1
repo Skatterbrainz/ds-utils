@@ -1,7 +1,9 @@
 function Get-ADLockedUsers {
 	<#
 	.SYNOPSIS
+		Get Active Directory user accounts which are currently locked
 	.DESCRIPTION
+		Get Active Directory user accounts which are currently locked
 	.PARAMETER EventID
 		Required. Event ID of user account lock event. Default = 4740
 	.PARAMETER LogName

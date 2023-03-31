@@ -3,32 +3,25 @@ Function Get-LoggedOnUser {
 	.SYNOPSIS
 		This will check the specified machine to see all users who are logged on.
 		For updated help and examples refer to -Online version.
-
-		This was added to DS-UTILS but I did not write this function (see below)
-
+		This function was added to DS-UTILS but I did not write it (see below)
+	.PARAMETER ComputerName
+		Specify a computername to see which users are logged into it.  If no computers are specified, it will default to the local computer.
+	.PARAMETER UserName
+		If the specified username is found logged into a machine, it will display it in the output.
+	.EXAMPLE
+		Get-LoggedOnUser -ComputerName Server01
+		Display all the users that are logged in server01
+	.EXAMPLE
+		Get-LoggedOnUser -ComputerName Server01, Server02 -UserName jsmith
+		Display if the user, jsmith, is logged into server01 and/or server02
 	.NOTES
 		Name: Get-LoggedInUser
 		Author: Paul Contreras
 		Version: 3.0
 		DateUpdated: 2021-Sep-21
-
 	.LINK
 		https://thesysadminchannel.com/get-logged-in-users-using-powershell/ -
 		For updated help and examples refer to -Online version.
-
-	.PARAMETER ComputerName
-		Specify a computername to see which users are logged into it.  If no computers are specified, it will default to the local computer.
-
-	.PARAMETER UserName
-		If the specified username is found logged into a machine, it will display it in the output.
-
-	.EXAMPLE
-		Get-LoggedOnUser -ComputerName Server01
-		Display all the users that are logged in server01
-
-	.EXAMPLE
-		Get-LoggedOnUser -ComputerName Server01, Server02 -UserName jsmith
-		Display if the user, jsmith, is logged into server01 and/or server02
 	#>
 	[CmdletBinding()]
 		param(
@@ -39,10 +32,7 @@ Function Get-LoggedOnUser {
 				Position=0
 			)]
 			[string[]] $ComputerName = $env:COMPUTERNAME,
-
-			[Parameter(
-				Mandatory = $false
-			)]
+			[Parameter(Mandatory = $false)]
 			[Alias("SamAccountName")]
 			[string]   $UserName
 		)

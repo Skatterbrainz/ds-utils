@@ -8,8 +8,7 @@
 .PARAMETER InputString
 	String to search for matching Pattern value
 .PARAMETER Path
-	Path to search files for matching Pattern value
-	If Path is provided, InputString is ignored
+	Path to search files for matching Pattern value. If Path is provided, InputString is ignored
 .PARAMETER Recurse
 	Optional. Only used with Path parameter. Default is to scan files
 	in the Path location only, not sub-folders. If Recurse is used, scan

@@ -1,15 +1,16 @@
 function ConvertTo-Base64Compressed {
 	<#
 	.SYNOPSIS
-	Convert string to Base64 compressed
+		Convert string to Base64 compressed
 	.DESCRIPTION
+		Convert an ASCII string to Base64 compressed format
 	.PARAMETER String
-	Required. Text string to convert.
+		Required. Text string to convert.
 	.EXAMPLE
-	"this is a test string" | ConvertTo-Base64Compressed
-	returns "H4sIAAAAAAAEACvJyCxWAKJEhZLU4hKF4pKizLx0ALXWhvwVAAAA"
+		"this is a test string" | ConvertTo-Base64Compressed
+		returns "H4sIAAAAAAAEACvJyCxWAKJEhZLU4hKF4pKizLx0ALXWhvwVAAAA"
 	.LINK
-	https://github.com/Skatterbrainz/ds-utils/blob/master/docs/ConvertTo-Base64Compressed.md
+		https://github.com/Skatterbrainz/ds-utils/blob/master/docs/ConvertTo-Base64Compressed.md
 	#>
 	[CmdletBinding()]
 	param (

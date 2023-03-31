@@ -22,10 +22,10 @@ function Set-ComputerName {
 		Set-ComputerName -FormCode None -MaxNameLength 8
 		Results in name like "12345678"
 	.NOTES
-		Actual Serial Number is used from WMI class Win32_SystemEnclosure
+		Actual Serial Number is used from WMI class Win32_SystemEnclosure,
 		Chassis Type number is taken from Win32_SystemEnclosure and uses first
-			element of result only, since docking stations, port replicators
-			may return an array like (10,12) where 10 is the laptop, and 12 is the dock
+		element of result only, since docking stations, port replicators
+		may return an array like (10,12) where 10 is the laptop, and 12 is the dock
 	.LINK
 		https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Set-ComputerName.md
 	#>

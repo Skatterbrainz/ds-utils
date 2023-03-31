@@ -1,15 +1,15 @@
 function Get-DialogFolderSelect {
 	<#
 	.SYNOPSIS
-	Display a Folder selection dialog
+		Display a Folder selection dialog
 	.DESCRIPTION
-	Display a folder selection dialog to choose a target folder
+		Display a folder selection dialog to choose a target folder
 	.PARAMETER InitialDirectory
-	Optional. If empty, will default to the current default working directory
+		Optional. If empty, will default to the current default working directory
 	.EXAMPLE
-	$folder = Get-DialogFolderSelect -InitialDirectory "c:\projects"
+		$folder = Get-DialogFolderSelect -InitialDirectory "c:\projects"
 	.LINK
-	https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-DialogFolderSelect.md
+		https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Get-DialogFolderSelect.md
 	#>
 	param (
 		[parameter()][string]$InitialDirectory = ""

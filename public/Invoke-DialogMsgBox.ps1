@@ -1,21 +1,21 @@
 function Invoke-DialogMsgBox {
 	<#
 	.SYNOPSIS
-	Display Windows message box
+		Display Windows message box
 	.DESCRIPTION
-	Display a Windows message box
+		Display a Windows message box
 	.PARAMETER Message
-	Text to display in the message box
+		Text to display in the message box
 	.PARAMETER Title
-	Message box caption / title
+		Message box caption / title
 	.PARAMETER ButtonType
-	Ok, OkCancel, YesNo, YesNoCancel. Default is Ok
+		Ok, OkCancel, YesNo, YesNoCancel. Default is Ok
 	.PARAMETER Icon
-	Error, Exclamation, Information, Question, Warning, None. Default is Information
+		Error, Exclamation, Information, Question, Warning, None. Default is Information
 	.EXAMPLE
-	$choice = Invoke-DialogMsgBox -Message "Proceed?" -Title "Update Records" -ButtonType YesNo -Icon Question
+		$choice = Invoke-DialogMsgBox -Message "Proceed?" -Title "Update Records" -ButtonType YesNo -Icon Question
 	.LINK
-	https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Invoke-DialogMsgBox.md
+		https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Invoke-DialogMsgBox.md
 	#>
 	[CmdletBinding()]
 	param (

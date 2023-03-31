@@ -5,6 +5,7 @@ function ConvertFrom-DecimalErrorCode {
 	.DESCRIPTION
 		Convert Decimal error code
 	.PARAMETER DecimalErrorCode
+		Error code in Decimal format
 	.EXAMPLE
 		-2147206582 | ConvertFrom-DecimalErrorCode
 		Returns: 0xffffffff80043a4a

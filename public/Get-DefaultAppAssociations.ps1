@@ -6,10 +6,9 @@ function Get-DefaultAppAssociations {
 		Returns default app associations for the current user
 	.PARAMETER FilePath
 		Path where export file is saved/maintained.
-		Default is user Documents path, filename is defaultapps.xml
+		Default path is user Documents path. Default filename is defaultapps.xml. For example: $($env:USERPROFILE)\Documents\defaultapps.xml
 	.PARAMETER RefreshDays
-		Number of days to reuse export file until forcing a refresh.
-		The default is seven (7) days
+		Number of days to reuse export file until forcing a refresh. The default value is 7 (days)
 	.PARAMETER Force
 		Force a refresh of the export file
 	.EXAMPLE

@@ -15,7 +15,6 @@ function Open-FileProperties {
 	param (
 		[parameter(Mandatory=$True)][alias('FilePath')][string]$Path
 	)
-
 	try {
 		if (!(Test-Path $Path)) { throw "File not found: $Path" }
 		$fileobject = Get-Item $Path

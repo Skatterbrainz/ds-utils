@@ -4,6 +4,7 @@ function Get-DefaultBrowser {
 		Get-DsDefaultBrowser
 	.DESCRIPTION
 		Returns default browser for current user
+	.PARAMETER (none)
 	.EXAMPLE
 		Get-DefaultBrowser
 		Example return: "Edge"

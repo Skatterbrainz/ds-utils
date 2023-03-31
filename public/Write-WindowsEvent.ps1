@@ -18,9 +18,10 @@ function Write-WindowsEvent {
 		clearly imply you can provide any custom name you desire. They show "MyApp". But if you try that
 		you'll get punched in the face with something annoying, like:
 
-		Write-EventLog : The source name "MyApp" does not exist on computer "localhost"
+		```Write-EventLog : The source name "MyApp" does not exist on computer "localhost"```
 
-		So I inserted my bite guard and strapped on the head gear and took the face hit for you.
+		* So I inserted my bite guard and strapped on the head gear and took the face hit for you.
+		* Source: https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.management/write-eventlog?view=powershell-5.1
 	.PARAMETER Message
 		Say something. I don't care. You can say 'Hello world!' if it makes you happy.
 	.EXAMPLE

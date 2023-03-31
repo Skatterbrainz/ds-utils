@@ -3,10 +3,9 @@ function Get-DocRef {
 	.SYNOPSIS
 		Opens link to Microsoft Doc for Variable Data Type
 	.DESCRIPTION
-		Opens a link in a web browser to the Microsoft Doc page for the
-		data type associated with a PowerShell variable. The Search parameter
-		searches Google for the variable type, for situations when there is no
-		direct MS Doc page available.
+		Opens a link in a web browser to the Microsoft Doc page for the data type associated with a
+		PowerShell variable. The Search parameter searches Google for the variable type, for 
+		situations when there is no direct MS Doc page available.
 	.PARAMETER VariableRef
 		PowerShell variable (object)
 	.PARAMETER Search

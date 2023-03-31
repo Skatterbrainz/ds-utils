@@ -1,17 +1,19 @@
 function ConvertFrom-Base64Compressed {
 	<#
 	.SYNOPSIS
-	Convert string from Base64 compressed to ASCII
+		Convert string from Base64 compressed to ASCII
 	.DESCRIPTION
+		Convert a Base64 encoded string to ASCII
 	.PARAMETER String
-	Required. Base64 compressed text string to convert.
+		Required. Base64 compressed text string to convert.
 	.EXAMPLE
-	$x = "this is a test string" | ConvertTo-Base64Compressed
-	returns "H4sIAAAAAAAEACvJyCxWAKJEhZLU4hKF4pKizLx0ALXWhvwVAAAA"
-	$x | ConvertFrom-Base64Compressed
-	returns "this is a test string"
+		$x = "this is a test string" | ConvertTo-Base64Compressed
+		returns "H4sIAAAAAAAEACvJyCxWAKJEhZLU4hKF4pKizLx0ALXWhvwVAAAA"
+
+		$x | ConvertFrom-Base64Compressed
+		Returns "this is a test string"
 	.LINK
-	https://github.com/Skatterbrainz/ds-utils/blob/master/docs/ConvertFrom-Base64Compressed.md
+		https://github.com/Skatterbrainz/ds-utils/blob/master/docs/ConvertFrom-Base64Compressed.md
 	#>
 	[CmdletBinding()]
 	param (

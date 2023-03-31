@@ -1,22 +1,23 @@
 function Invoke-DialogFileOpen {
 	<#
 	.SYNOPSIS
-	Display a file open dialog form
+		Display a file open dialog form
 	.DESCRIPTION
-	Display a file open dialog form to select one or more files to return the full names.
+		Display a file open dialog form to select one or more files to return the full names.
 	.PARAMETER InitialDirectory
-	Default folder location
+		Default folder location
 	.PARAMETER Filter
-	Optional. File type filter, using paired format as follows:
-	Default is "All Files (*.*)|*.*". Format is "Text Files (*.txt)|*.txt"
+		Optional. File type filter, using paired format as follows:
+		* Default is "All Files (*.*)|*.*"
+		* Format is "Text Files (*.txt)|*.txt"
 	.PARAMETER Title
-	Optional. Dialog form caption. Default is "Select File"
+		Optional. Dialog form caption. Default is "Select File"
 	.PARAMETER MultiSelect
-	Optional. Allows selecting multiple files. Default is single selection only.
+		Optional. Allows selecting multiple files. Default is single selection only.
 	.EXAMPLE
-	$files = Invoke-DialogFileOpen -InitialDirectory "c:\projects" -Filter "Python Files (*.py)|*.py" -Title "Select Files" -MultiSelect
+		$files = Invoke-DialogFileOpen -InitialDirectory "c:\projects" -Filter "Python Files (*.py)|*.py" -Title "Select Files" -MultiSelect
 	.LINK
-	https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Invoke-DialogFileOpen.md
+		https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Invoke-DialogFileOpen.md
 	#>
 	[CmdletBinding()]
 	param (
