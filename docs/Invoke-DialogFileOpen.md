@@ -47,8 +47,8 @@ Accept wildcard characters: False
 ### -Filter
 Optional.
 File type filter, using paired format as follows:
-Default is "All Files (*.*)|*.*".
-Format is "Text Files (*.txt)|*.txt"
+* Default is "All Files (*.*)|*.*"
+* Format is "Text Files (*.txt)|*.txt"
 
 ```yaml
 Type: String

@@ -30,7 +30,7 @@ Returns: 0xffffffff80043a4a
 ## PARAMETERS
 
 ### -DecimalErrorCode
-{{ Fill DecimalErrorCode Description }}
+Error code in Decimal format
 
 ```yaml
 Type: Int64

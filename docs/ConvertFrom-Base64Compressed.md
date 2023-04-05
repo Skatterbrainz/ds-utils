@@ -17,7 +17,7 @@ ConvertFrom-Base64Compressed [-EncodedText] <Object> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+Convert a Base64 encoded string to ASCII
 
 ## EXAMPLES
 
@@ -25,9 +25,10 @@ ConvertFrom-Base64Compressed [-EncodedText] <Object> [<CommonParameters>]
 ```
 $x = "this is a test string" | ConvertTo-Base64Compressed
 returns "H4sIAAAAAAAEACvJyCxWAKJEhZLU4hKF4pKizLx0ALXWhvwVAAAA"
-$x | ConvertFrom-Base64Compressed
-returns "this is a test string"
 ```
+
+$x | ConvertFrom-Base64Compressed
+Returns "this is a test string"
 
 ## PARAMETERS
 

@@ -64,7 +64,7 @@ Accept wildcard characters: False
 ```
 
 ### -Path
-Path to search files for matching Pattern value
+Path to search files for matching Pattern value.
 If Path is provided, InputString is ignored
 
 ```yaml

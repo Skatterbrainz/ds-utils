@@ -13,7 +13,7 @@ Get-DsShortcut
 ## SYNTAX
 
 ```
-Get-Shortcut [-Path] <String> [<CommonParameters>]
+Get-Shortcut [-Path] <String> [[-Source] <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -24,6 +24,13 @@ Return shortcut properties
 ### EXAMPLE 1
 ```
 Get-Shortcut -Path "$($env:USERPROFILE)\Desktop\GitHub Desktop.lnk"
+Returns the shortcut properties as defined in the Wscript.Shell COM object properties
+```
+
+### EXAMPLE 2
+```
+Get-Shortcut -Path "$($env:USERPROFILE)\Desktop\GitHub Desktop.lnk" -Source CIM
+Returns the shortcut properties as defined in Win32_ShortcutFile
 ```
 
 ## PARAMETERS
@@ -39,6 +46,24 @@ Aliases:
 Required: True
 Position: 1
 Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Source
+Optional.
+Shell or CIM
+* Shell uses Win32 Wscript.Shell COM interface to query the shortcut properties
+* CIM uses the Win32_ShortcutFile class to query the shortcut properties
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 2
+Default value: Shell
 Accept pipeline input: False
 Accept wildcard characters: False
 ```

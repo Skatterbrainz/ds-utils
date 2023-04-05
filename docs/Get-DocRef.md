@@ -17,11 +17,10 @@ Get-DocRef [-VariableRef] <Object> [-Search] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Opens a link in a web browser to the Microsoft Doc page for the
-data type associated with a PowerShell variable.
-The Search parameter
-searches Google for the variable type, for situations when there is no
-direct MS Doc page available.
+Opens a link in a web browser to the Microsoft Doc page for the data type associated with a
+PowerShell variable.
+The Search parameter searches Google for the variable type, for 
+situations when there is no direct MS Doc page available.
 
 ## EXAMPLES
 

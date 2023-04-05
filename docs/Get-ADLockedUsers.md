@@ -8,6 +8,7 @@ schema: 2.0.0
 # Get-ADLockedUsers
 
 ## SYNOPSIS
+Get Active Directory user accounts which are currently locked
 
 ## SYNTAX
 
@@ -16,7 +17,7 @@ Get-ADLockedUsers [[-EventID] <Int32>] [[-LogName] <String>] [[-DaysBack] <Int32
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+Get Active Directory user accounts which are currently locked
 
 ## EXAMPLES
 

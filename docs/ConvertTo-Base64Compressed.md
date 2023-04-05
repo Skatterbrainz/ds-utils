@@ -17,7 +17,7 @@ ConvertTo-Base64Compressed [-string] <Object> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+Convert an ASCII string to Base64 compressed format
 
 ## EXAMPLES
 

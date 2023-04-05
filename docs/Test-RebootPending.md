@@ -37,7 +37,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ### True or False
 ## NOTES
-Internal function
 Thanks to https://4sysops.com/archives/use-powershell-to-test-if-a-windows-server-is-pending-a-reboot/
 
 ## RELATED LINKS

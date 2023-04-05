@@ -1,4 +1,5 @@
 # ds-utils
+
 Daves Utils
 
 ## Overview
@@ -13,6 +14,8 @@ Get-Command -Module ds-utils
 Get-Help <function-name> -Examples
 
 Get-Help <function-name> -Online
+
+Update-Module ds-utils
 ```
 
 ## Documentation

@@ -11,8 +11,7 @@ schema: 2.0.0
 ## SYNOPSIS
 This will check the specified machine to see all users who are logged on.
 For updated help and examples refer to -Online version.
-
-This was added to DS-UTILS but I did not write this function (see below)
+This function was added to DS-UTILS but I did not write it (see below)
 
 ## SYNTAX
 

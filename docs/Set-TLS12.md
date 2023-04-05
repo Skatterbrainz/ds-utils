@@ -1,14 +1,14 @@
 ---
 external help file: ds-utils-help.xml
 Module Name: ds-utils
-online version: https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Set-ResourcePermissions.md
+online version: https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Set-TLS12.md
 schema: 2.0.0
 ---
 
 # Set-TLS12
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Sets TLS channel to v1.2 for the active/current session only
 
 ## SYNTAX
 
@@ -17,26 +17,26 @@ Set-TLS12
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+Same as SYNOPSIS.
+I know.
+Shocking, right?
 
 ## EXAMPLES
 
-### Example 1
-```powershell
-PS C:\> {{ Add example code here }}
+### EXAMPLE 1
 ```
-
-{{ Add example description here }}
+Set-TLS12
+```
 
 ## PARAMETERS
 
 ## INPUTS
 
-### None
-
 ## OUTPUTS
 
-### System.Object
 ## NOTES
 
 ## RELATED LINKS
+
+[https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Set-TLS12.md](https://github.com/Skatterbrainz/ds-utils/blob/master/docs/Set-TLS12.md)
+

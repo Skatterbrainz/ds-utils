@@ -17,7 +17,7 @@ Set-WindowsTelemetry [-Enable] <Boolean> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Disable Windows 10 Telemetry Collection and Upload
+Disable Windows 10 Telemetry Collection and Upload.
 Disable Connected User Experiences service, and WAP Push service
 
 ## EXAMPLES
